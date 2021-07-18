@@ -8,7 +8,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
   loginAdmin(user:any){
-    return this.http.post<any>("http://localhost:3000/admin",user);
+    return this.http.post<any>("http://localhost:3000/admin",{'admin':user});
   }
   // loggedIn()
   // {
