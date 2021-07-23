@@ -10,12 +10,12 @@ export class AuthService {
   loginUser(trainer:any){
     return this.http.post<any>("http://localhost:3000/signin",{"trainer":trainer})
   }
-  // loggedIn()
-  // {
-  //   return !!localStorage.getItem('token')
-  // }
-  // getToken()
-  // {
-  //   return localStorage.getItem('token')
-  // }
+  loggedIn()
+  {
+    return !!localStorage.getItem('token')
+  }
+  getToken()
+  {
+    return localStorage.getItem('token')
+  }
 }

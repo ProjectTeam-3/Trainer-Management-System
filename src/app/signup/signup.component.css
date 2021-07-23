@@ -152,3 +152,7 @@
 .foot-lnk{
 	text-align:center;
 }
+small{
+	font-size: medium;
+	color: black;
+}

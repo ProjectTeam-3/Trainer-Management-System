@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       res => {
         // localStorage.setItem('token', res.token)
         this.router.navigate(['/admin'])
-        //console.log("suucess")
+        // console.log("success")
       },
       err => {
         console.log(err);
@@ -39,15 +39,17 @@ export class LoginComponent implements OnInit {
     ) 
   }
   loginTrainer() {
-    
     this._auth.loginUser(this.trainer)
     .subscribe(
       res => {
-        // localStorage.setItem('token', res.token)
+        alert('successful login');
         this.router.navigate(['/trainer'])
+
+        // localStorage.setItem('token', res.token)
       },
       err => {
         console.log(err);
+        
         alert('Invalid login');
         this.router.navigate(['/login'])
       }

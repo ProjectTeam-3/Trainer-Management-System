@@ -1,4 +1,5 @@
-<div style="background-image: url(https://dev.myultrasoundtutor.com/wp-content/uploads/bg-login.jpg);padding: 50px;">
+<app-header></app-header>
+<div style="background-image: url(https://i.pinimg.com/originals/2f/c9/05/2fc90526bbe6399b4733668573cefddd.jpg);padding: 50px;">
 	<div class="login-wrap">
 		<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Trainer</label>
@@ -8,11 +9,11 @@
 					<form  ngNativeValidate (ngSubmit)="loginTrainer()" #trainerlogin='ngForm'>
 					<div class="group">
 						<label for="traineremail" class="label">Email</label>
-						<input id="traineremail" type="email" class="input" name="traineremail" placeholder="Enter your Email" required>
+						<input id="traineremail" type="email" class="input form-control" name="traineremail" placeholder="Enter your Email" required [(ngModel)]="trainer.traineremail">
 					</div>
 					<div class="group">
 						<label for="trainerpass" class="label">Password</label>
-						<input id="trainerpass" type="password" class="input" data-type="password" name="trainerpass" placeholder="Enter your password" required>
+						<input id="trainerpass" type="password" class="input form-control" data-type="password" name="trainerpass" [(ngModel)]='trainer.trainerpass' placeholder="Enter your password" required minlength="6">
 					</div>
 					<div class="group">
 						<button type="submit" class="button">LOGIN</button>
@@ -26,15 +27,15 @@
 				</div>
 				<div class="for-pwd-htm">
 					<form action="" ngNativeValidate (ngSubmit)="loginAdmin()" #adminlogin='ngForm'>
-					<div class="group">
+					<div class="group form-group ">
 						<label for="adminemail" class="label"> Email</label>
-						<input id="adminemail" type="email" class="input" name="adminemail" placeholder="Enter your Email" required>
+						<input id="adminemail" type="email" class="input form-control" name="adminemail" [(ngModel)]='user.adminemail' placeholder="Enter your Email" required>
 					</div>
-					<div class="group">
+					<div class="group form-group">
 						<label for="adminpass" class="label">Password</label>
-						<input id="adminpass" type="password" class="input" data-type="password" name="adminpass" placeholder="Enter your password" required>
+						<input id="adminpass" type="password" class="input form-control" minlength="6" data-type="password" name="adminpass" [(ngModel)]='user.adminpass' placeholder="Enter your password" required>
 					</div>
-					<div class="group">
+					<div class="group ">
 						<button type="submit" class="button">LOGIN</button>
 					</div>
 					<div class="hr"></div>

@@ -10,12 +10,12 @@ export class AdminService {
   loginAdmin(user:any){
     return this.http.post<any>("http://localhost:3000/admin",{'admin':user});
   }
-  // loggedIn()
-  // {
-  //   return !!localStorage.getItem('token')
-  // }
-  // getToken()
-  // {
-  //   return localStorage.getItem('token')
-  // }
+  loggedIn()
+  {
+    return !!localStorage.getItem('token')
+  }
+  getToken()
+  {
+    return localStorage.getItem('token')
+  }
 }

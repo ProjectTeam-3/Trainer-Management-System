@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
+import { TokenInterceptorService} from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,13 @@ import { AdminComponent } from './admin/admin.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

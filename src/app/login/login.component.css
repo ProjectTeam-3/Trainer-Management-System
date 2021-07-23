@@ -36,6 +36,9 @@
 .login-form .group .check{
 	display:none;
 }
+.tab{
+color: rgb(190, 190, 190);
+}
 .login-html .tab,
 .login-form .group .label,
 .login-form .group .button{
@@ -151,4 +154,8 @@
 }
 .foot-lnk{
 	text-align:center;
+}
+small{
+	font-size: medium;
+	color: black;
 }

@@ -1,8 +1,9 @@
 .navbar-new-top{
-    background: rgb(194, 186, 186);
+    background: rgb(51, 50, 50,0.3);
 }
 .navbar-brand{
     font-weight: 600;
+    color: lightgray;
 }
 .navbar-brand img{
     width: 20%;
@@ -11,7 +12,7 @@
     margin-right: 9%;
 }
 .navbar-new-top ul li{
-    margin-right: 8%;
+    margin-right: 10%;
 }
 .navbar-new-bottom{
     background-color: #f7f7f7;
@@ -25,13 +26,14 @@
     margin-right: 2%;
 }
 .navbar-nav .nav-item a {
-    color: #333;
+   color: lightgray;
+    /* color: rgb(255, 255, 255); */
     font-size: 14px;
     font-weight: 600;
     transition: 1s ease;
 }
 .navbar-nav .nav-item a:hover{
-    color: #0062cc;
+    color: #a3a4a8;
 }
 .dropdown-menu.show{
     background: #f8f9fa;
