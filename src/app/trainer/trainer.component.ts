@@ -6,7 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trainer.component.css']
 })
 export class TrainerComponent implements OnInit {
-
+  // trainer={
+  //   traineremail:'',
+  //   trainerusername:'',
+  //   trainerpass:'',
+  //   photo:'',
+  //   course:'',
+  //   desig:'',
+  //   currentcmpny:'',
+  //   skillset:'',
+  //   highqualification:'',
+  //   trainerAddress:'',
+  //   trainerPhone:''
+  // }
   constructor() { }
 
   ngOnInit(): void {
