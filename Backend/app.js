@@ -3,14 +3,21 @@ app = new express();
 const cors = require('cors');
 const userdata = require('./src/model/userdata');
 const jwt = require('jsonwebtoken')
-
+const enrollmentdata=require('./src/model/enrollmentdata');
+const multer=require('multer');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 adminemail='admin@gmail.com';
 password='admin@123';
-
+var storage=multer.diskStorage({
+  destination:function(req,res,cb){
+   cb(null,'./public/images/requests')
+  },
+filename:function(req,file,cb){
+  cb(null,file.originalname)
+}});
 app.post('/signup', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -84,6 +91,42 @@ app.post('/admin', function (req, res) {
       res.status(200).send({token})
     }
 });
+app.post('/request',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.body);
+  var upload=multer({storage: storage}).single('img');
+  upload(req,res,(err)=>{
+    
+    if(err){
+      console.log(err);
+     }
+     else{
+       if(req.file){
+      var item={
+        fname:req.body.fname,
+        lname: req.body.lname,
+        address:req.body.address,
+        email: req.body.email,
+        phno: req.body.phno,
+        qual:req.body.qual,
+        skill: req.body.skill,
+        comp: req.body.comp,
+        desgn: req.body.desgn,
+        course: req.body.course,
+        img:req.file.filename
+      }
+    }
+    else{
+      console.log("error")
+    }
+       var enrollment=new enrollmentdata(item);
+       enrollment.save();
+     }
+  })
+})
+
+
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
 });

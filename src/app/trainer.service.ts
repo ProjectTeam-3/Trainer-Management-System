@@ -17,4 +17,10 @@ export class TrainerService {
       console.log(data);
     })
   }
+  addRequest(fd:any){
+    console.log(fd);
+    return this.http.post<any>("http://localhost:3000/request",fd).subscribe((data)=>{
+      console.log(data);
+    })
+  }
 }

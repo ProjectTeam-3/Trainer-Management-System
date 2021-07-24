@@ -14,6 +14,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
 import { TokenInterceptorService} from './token-interceptor.service';
+import { SuccessComponent } from './success/success.component';
+import { EnrollmentComponent } from './enrollment/enrollment.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { TokenInterceptorService} from './token-interceptor.service';
     AboutusComponent,
     TrainerComponent,
     AdminComponent,
+    SuccessComponent,
+    EnrollmentComponent,
   ],
   imports: [
     BrowserModule,
