@@ -1,1 +1,81 @@
-<p>trainer works!</p>
+
+
+<div style="background-image: url(https://i.pinimg.com/originals/2f/c9/05/2fc90526bbe6399b4733668573cefddd.jpg);padding: 50px;">
+    <div class="login-wrap">
+		<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Trainer</label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Admin</label>
+            <div class="login-form">
+                    <div class="sign-in-htm">
+                        <form  ngNativeValidate (ngSubmit)="" #trainerlogin='ngForm'>
+                        <div class="group">
+                            <label for="trainername" class="label">Name</label>
+                            <input id="trainername" type="text" class="input form-control" name="trainername" placeholder="Enter your Name" required [(ngModel)]="trainer.trainerName">
+                        </div>
+                        <div class="group">
+                            <label for="traineremail" class="label">Email</label>
+                            <input id="traineremail" type="email" class="input form-control" name="traineremail" placeholder="Enter your Email" required [(ngModel)]="trainer.trainerEmail">
+                        </div>
+                        <div class="group">
+                            <label for="trainerphone" class="label">Phone Number</label>
+                            <input id="trainerphone" type="number" class="input form-control" name="trainerphone" placeholder="Enter your Phone Number" required [(ngModel)]="trainer.trainerPhone">
+                        </div>
+                        <div class="group">
+                            <label for="traineraddress" class="label">Address</label>
+                            <input id="traineraddress" type="text" class="input form-control" name="traineraddress" placeholder="Enter your Address" required [(ngModel)]="trainer.trainerAddress">
+                        </div>
+                        <div class="group">
+                            <label for="trainerhqualify" class="label">Highest Qualification</label>
+                            <input id="trainerhqualify" type="text" class="input form-control" name="trainerhqualify" placeholder="Enter your Highest Qualification" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <label for="trainerskill" class="label">Skill Set</label>
+                            <input id="trainerskill" type="text" class="input form-control" name="trainerskill" placeholder="Enter your Skill Set" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <label for="trainerccompany" class="label">Current Company</label>
+                            <input id="trainerccompany" type="text" class="input form-control" name="trainerccompany" placeholder="Enter your Current Company" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <label for="trainercdesignation" class="label">Current Designation</label>
+                            <input id="trainercdesignation" type="text" class="input form-control" name="trainercdesignation" placeholder="Enter your Current Designation" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <label for="trainerictakc" class="label">ICTAK courses</label>
+                            <input id="trainerictakc" type="text" class="input form-control" name="trainerictakc" placeholder="Enter your ICTAK courses" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <label for="trainerphoto" class="label">Photo</label>
+                            <input id="trainerphoto" type="file" class="input form-control" name="trainerphoto" placeholder="" required [(ngModel)]="">
+                        </div>
+                        <div class="group">
+                            <button type="submit" class="button">Save</button>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                        <small>Don't have an account?</small>
+                        <a routerLink="/signup" style="text-decoration: none;"><b> Sign Up</b></a>
+                        </div>
+                        </form>
+                    </div>
+				<div class="for-pwd-htm">
+					<form action="" ngNativeValidate (ngSubmit)="loginAdmin()" #adminlogin='ngForm'>
+					<div class="group form-group ">
+						<label for="adminemail" class="label"> Email</label>
+						<input id="adminemail" type="email" class="input form-control" name="adminemail" [(ngModel)]='user.adminemail' placeholder="Enter your Email" required>
+					</div>
+					<div class="group form-group">
+						<label for="adminpass" class="label">Password</label>
+						<input id="adminpass" type="password" class="input form-control" minlength="6" data-type="password" name="adminpass" [(ngModel)]='user.adminpass' placeholder="Enter your password" required>
+					</div>
+					<div class="group ">
+						<button type="submit" class="button">LOGIN</button>
+					</div>
+					<div class="hr"></div>
+					</form>
+				</div>
+		
+		    </div>
+		</div>
+	</div>
+</div>
