@@ -118,14 +118,73 @@ app.post('/request',(req,res)=>{
       }
     }
     else{
-      console.log("error")
+      var item={
+        fname:req.body.fname,
+        lname: req.body.lname,
+        address:req.body.address,
+        email: req.body.email,
+        phno: req.body.phno,
+        qual:req.body.qual,
+        skill: req.body.skill,
+        comp: req.body.comp,
+        desgn: req.body.desgn,
+        course: req.body.course,
+        
+      }
     }
        var enrollment=new enrollmentdata(item);
        enrollment.save();
      }
   })
 })
+app.get('/getTrainers',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  enrollmentdata.find().then((trainers)=>{
+    res.send(trainers);
+  })  
+})
+app.get('/search/:name',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.params);
+  var regex=new RegExp(req.params.name,'i');
+  enrollmentdata.find({$or:[{fname:regex},{lname:regex}]}).then((data)=>{
+    res.send(data);
+  })
+   
+})
+app.get('/search/course/:course',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.params);
+  var regex=new RegExp(req.params.course,'i');
+  enrollmentdata.find({course:regex}).then((data)=>{
+    res.send(data);
+  })
+   
+})
+app.get('/search/skill/:skill',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.params);
 
+  var regex=new RegExp(req.params.skill,'i');
+  enrollmentdata.find({skill:regex}).then((data)=>{
+    res.send(data);
+  })
+   
+})
+app.get('/search/type/:type',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.params);
+  var regex=new RegExp(req.params.type,'i');
+  enrollmentdata.find({type:regex}).then((data)=>{
+    res.send(data);
+  })
+   
+})
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");

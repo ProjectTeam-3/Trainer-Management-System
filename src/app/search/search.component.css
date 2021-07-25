@@ -1,0 +1,33 @@
+ .search-comp{
+    background-color: darkcyan;
+    padding: 2%;
+    width: 98%;
+    border-radius: 1em;
+    margin-left: 10px;
+    font-size: larger;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+ .search-table{
+    margin-top: 2%;
+    width: 98%;
+    margin-left: 10px;
+   
+}
+th,td{
+    padding: 1%;
+    font-size: larger;
+    width: 10%;
+}
+#button{
+    background-color: darkcyan;
+}
+.input-group{
+    display: inline;
+}
+#search-input{
+    padding: 4.5px;
+    border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+}

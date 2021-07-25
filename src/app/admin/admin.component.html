@@ -5,7 +5,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a routerLink="#home-content" >
+          <a routerLink="home" >
             <i class="bi bi-layout-text-sidebar-reverse"></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -17,7 +17,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/trainerslist">
+          <a routerLink="search">
             <i class="bi bi-list-check"></i>
             <span class="links_name">Trainers list</span>
           </a>
@@ -51,31 +51,8 @@
     </nav>
 
     <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Requests</div>
-            <div class="number"></div>
-            <div class="indicator">
-                <i class="bi bi-calendar-check"></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Trainers</div>
-            <div class="number"></div>
-            <div class="indicator">
-                <i class="bi bi-calendar-check"></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-
+     
+    <router-outlet></router-outlet>
       <!-- <div class="sales-boxes">
         <div class="recent-sales box">
           <div class="title">Recent Sales</div>

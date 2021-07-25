@@ -16,6 +16,8 @@ import { AdminComponent } from './admin/admin.component';
 import { TokenInterceptorService} from './token-interceptor.service';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { SearchComponent } from './search/search.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
     AdminComponent,
     SuccessComponent,
     EnrollmentComponent,
+    SearchComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

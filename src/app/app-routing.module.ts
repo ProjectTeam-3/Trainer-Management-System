@@ -8,6 +8,8 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { SearchComponent } from './search/search.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -17,7 +19,12 @@ const routes: Routes = [
   {path:'trainer',component:TrainerComponent,
 children:[{path:'enrollment',component:EnrollmentComponent},
 {path:'success',component:SuccessComponent}]},
-  {path:'admin',component:AdminComponent},
+  {path:'admin',component:AdminComponent,children:[
+    {path:'',component:DashboardComponent},
+    {path:'search',component:SearchComponent},{
+      path:'home',component:DashboardComponent
+    }
+  ]},
   
 ];
 
