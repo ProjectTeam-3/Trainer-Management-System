@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -8,8 +8,10 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
-import { SearchComponent } from './search/search.component';
+import { RequestsComponent } from './requests/requests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TrainerapproveComponent } from './trainerapprove/trainerapprove.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -17,11 +19,18 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'aboutus',component:AboutusComponent},
   {path:'trainer',component:TrainerComponent,
-children:[{path:'enrollment',component:EnrollmentComponent},
-{path:'success',component:SuccessComponent}]},
-  {path:'admin',component:AdminComponent,children:[
+  children:[
+    {path:'enrollment',component:EnrollmentComponent},
+    {path:'success',component:SuccessComponent}
+  ]},
+  {path:'admin',component:AdminComponent,
+  children:[
+    {path:'dashboard',component:DashboardComponent},
+    {path:'requests',component:RequestsComponent},
+    {path:'approval',component:TrainerapproveComponent},
     {path:'',component:DashboardComponent},
-    {path:'search',component:SearchComponent},{
+    {path:'search',component:SearchComponent},
+    {
       path:'home',component:DashboardComponent
     }
   ]},

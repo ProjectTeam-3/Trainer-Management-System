@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,8 +16,11 @@ import { AdminComponent } from './admin/admin.component';
 import { TokenInterceptorService} from './token-interceptor.service';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
-import { SearchComponent } from './search/search.component';
+import { RequestsComponent } from './requests/requests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TrainerapproveComponent } from './trainerapprove/trainerapprove.component';
+import { SearchComponent } from './search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -32,14 +35,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AdminComponent,
     SuccessComponent,
     EnrollmentComponent,
-    SearchComponent,
+    RequestsComponent,
     DashboardComponent,
+    TrainerapproveComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     {

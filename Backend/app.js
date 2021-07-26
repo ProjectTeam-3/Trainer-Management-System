@@ -2,9 +2,12 @@ const express = require("express");
 app = new express();
 const cors = require('cors');
 const userdata = require('./src/model/userdata');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const nodemailer=require('nodemailer');
 const enrollmentdata=require('./src/model/enrollmentdata');
+const trainerdata=require('./src/model/trainerdata');
 const multer=require('multer');
+const { request } = require("http");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -118,29 +121,104 @@ app.post('/request',(req,res)=>{
       }
     }
     else{
-      var item={
-        fname:req.body.fname,
-        lname: req.body.lname,
-        address:req.body.address,
-        email: req.body.email,
-        phno: req.body.phno,
-        qual:req.body.qual,
-        skill: req.body.skill,
-        comp: req.body.comp,
-        desgn: req.body.desgn,
-        course: req.body.course,
-        
-      }
+      console.log("error in saving the image")
     }
        var enrollment=new enrollmentdata(item);
        enrollment.save();
      }
   })
 })
+app.get('/requestlist', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  enrollmentdata.find()
+    .then(function (requests) {
+      res.send(requests);  
+    }); 
+});
+app.delete('/reject/:id',(req,res)=>{
+   
+  id = req.params.id;
+  enrollmentdata.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('rejected a trainer request')
+      res.send();
+  })
+})
+app.get('/approverequest/:id',  (req, res) => {
+  
+  const id = req.params.id;
+  enrollmentdata.findOne({"_id":id})
+    .then((request)=>{
+      console.log('approve request '+request)
+        res.send(request);
+    });
+})
+
+
+app.post('/approvedtrainer',async function (req, res) {
+   
+  console.log(req.body);
+    var fname=req.body.fname;
+    var typeemp=req.body.typeemp;
+    var id=fname.toUpperCase() + '_'+typeemp.toUpperCase();
+  var approvedlist = {
+    fname:req.body.fname,
+    lname: req.body.lname,
+    address:req.body.address,
+    email: req.body.email,
+    phno: req.body.phno,
+    qual:req.body.qual,
+    skill: req.body.skill,
+    comp: req.body.comp,
+    desgn: req.body.desgn,
+    course: req.body.course,
+    img: req.body.img,
+    typeemp:req.body.typeemp,
+    id:id
+  }
+  
+  
+  console.log('approvedlist '+ approvedlist)
+  var approvedlist =new trainerdata(approvedlist);
+  approvedlist.save();
+  const traineremail=await enrollmentdata.findOne({email:approvedlist.email})
+  
+  var transport=nodemailer.createTransport(
+    {
+      service:'gmail',
+      auth:{
+        user:'ictakproject@gmail.com',
+        pass:'admin4ictak!'
+      }
+    }
+  )
+  
+  var mailOptions={
+    
+    from:'ictakproject@gmail.com',
+    to:approvedlist.email,
+    subject:'You are Approved',
+    text:`Congratulations ${approvedlist.fname}  ${approvedlist.lname}.You are approved as ${approvedlist.typeemp}  Trainer and your ID is ${approvedlist.id}.`
+  }
+  transport.sendMail(mailOptions,function(error,info){
+    if(error){
+      console.log(error+" error insenting email")
+    }
+    else{
+      console.log("email sent "+info.response)
+    }
+  })
+  enrollmentdata.findOneAndDelete({"_id":traineremail._id})
+  .then(()=>{
+      console.log('successfully deleted from enrollment list')
+      res.send();
+  })
+});
 app.get('/getTrainers',(req,res)=>{
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-  enrollmentdata.find().then((trainers)=>{
+  trainerdata.find().then((trainers)=>{
     res.send(trainers);
   })  
 })
@@ -149,7 +227,7 @@ app.get('/search/:name',(req,res)=>{
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
   console.log(req.params);
   var regex=new RegExp(req.params.name,'i');
-  enrollmentdata.find({$or:[{fname:regex},{lname:regex}]}).then((data)=>{
+  trainerdata.find({$or:[{fname:regex},{lname:regex}]}).then((data)=>{
     res.send(data);
   })
    
@@ -159,7 +237,7 @@ app.get('/search/course/:course',(req,res)=>{
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
   console.log(req.params);
   var regex=new RegExp(req.params.course,'i');
-  enrollmentdata.find({course:regex}).then((data)=>{
+  trainerdata.find({course:regex}).then((data)=>{
     res.send(data);
   })
    
@@ -170,21 +248,23 @@ app.get('/search/skill/:skill',(req,res)=>{
   console.log(req.params);
 
   var regex=new RegExp(req.params.skill,'i');
-  enrollmentdata.find({skill:regex}).then((data)=>{
+  trainerdata.find({skill:regex}).then((data)=>{
     res.send(data);
   })
    
 })
-app.get('/search/type/:type',(req,res)=>{
+app.get('/search/type/:typeemp',(req,res)=>{
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
   console.log(req.params);
-  var regex=new RegExp(req.params.type,'i');
-  enrollmentdata.find({type:regex}).then((data)=>{
+  var regex=new RegExp(req.params.typeemp,'i');
+  trainerdata.find({typeemp:regex}).then((data)=>{
     res.send(data);
   })
    
 })
+
+
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");

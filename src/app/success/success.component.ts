@@ -13,6 +13,6 @@ export class SuccessComponent implements OnInit {
   ngOnInit(): void {
   }
 goBack(){
-this.router.navigate(['/trainer'])
+this.router.navigate(['trainer'])
 }
 }
