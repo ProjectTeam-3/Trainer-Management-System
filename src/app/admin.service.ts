@@ -28,8 +28,8 @@ export class AdminService {
     console.log(skill);
     return this.http.get("http://localhost:3000/search/skill/"+skill);
   }
-  searchByType(type:any){
-    return this.http.get("http://localhost:3000/search/type/"+type);
+  searchByType(typeemp:any){
+    return this.http.get("http://localhost:3000/search/type/"+typeemp);
   }
   searchByCourse(course:any){
     
