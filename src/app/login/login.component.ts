@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.admin.loginAdmin(this.user)
     .subscribe(
       res => {
-        // localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.token)
         this.router.navigate(['/admin'])
         // console.log("success")
       },
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         alert('successful login');
         this.router.navigate(['/trainer'])
 
-        // localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.token)
       },
       err => {
         console.log(err);

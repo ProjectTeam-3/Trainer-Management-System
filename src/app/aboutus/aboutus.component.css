@@ -1,8 +1,33 @@
+h1{
+    font-weight: bold;
+
+}
 h2{
-    color: white;
+    color: black;
+    font-weight: bold;
+    font-family: serif;
 }
 p{
     text-align: justify;
-    font-size: 2em;
-    color:white;
+    font-size: 18px;
+    color:black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+#first{
+    left: 2%;
+}
+
+.img-custom{
+    height: 100%;
+    width: 100%;
+}
+
+.vision{
+    color: rgb(12, 63, 63) ;
+}
+/* video{
+    -moz-box-shadow: 10px 10px 5px rgb(10, 10, 10);
+    -webkit-box-shadow: 10px 10px 5px rgb(24, 23, 23);
+    box-shadow: 10px 10px 5px rgb(10, 10, 10);
+
+} */

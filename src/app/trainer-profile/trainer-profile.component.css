@@ -1,0 +1,48 @@
+.coverview {
+  width: 250px;
+  height: 250px;
+  border: blue solid 3px;
+  border-radius: 50%;
+  box-shadow: 1px 0px 10px 3px gray;
+}
+.name {
+  margin-top: 20px;
+}
+.label {
+  font-family: "Oswald", arial narrow, sans-serif;
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 67%;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.label-default {
+  background-color: gainsboro;
+  border-radius: 0;
+  color: blue;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 49px;
+  margin-right: -9px;
+}
+.content {
+  margin: 10px auto 20px 80px;
+  /* background: white; */
+  /* border: solid 1px black; */
+  /* font-family: 'initial'; */
+}
+
+.content h4 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.colun {
+  text-align: center;
+}
