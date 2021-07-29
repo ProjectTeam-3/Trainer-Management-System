@@ -91,6 +91,7 @@ app.post('/admin', function (req, res) {
       res.status(200).send({token})
     }
 });
+
 app.post('/request',(req,res)=>{
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -125,8 +126,15 @@ app.post('/request',(req,res)=>{
      }
   })
 })
-
-
+app.get('/trainerProfile', function (req, res) {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  enrollmentdata.findOne({ email:'sariga007@gmail.com' })
+    .then(function (data) {
+      res.send(data);
+      console.log(data);
+    });
+});
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
 });

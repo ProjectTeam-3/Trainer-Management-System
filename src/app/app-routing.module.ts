@@ -8,6 +8,7 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -16,8 +17,10 @@ const routes: Routes = [
   {path:'aboutus',component:AboutusComponent},
   {path:'trainer',component:TrainerComponent,
 children:[{path:'enrollment',component:EnrollmentComponent},
+{path:'requests',component:TrainerProfileComponent},
 {path:'success',component:SuccessComponent}]},
   {path:'admin',component:AdminComponent},
+
   
 ];
 
