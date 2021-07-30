@@ -75,9 +75,9 @@
             
         </td>
       </tr>
-      <tr *ngFor="let trainer of trainerslist">
+      <tr *ngFor="let trainer of trainerslist" (click)="Allocate(trainer)">
         
-        <td scope="row">{{trainer.fname}} {{trainer.lname}}</td>
+        <td scope="row" >{{trainer.fname}} {{trainer.lname}}</td>
         <td>{{trainer.skill}}</td>
         <td>{{trainer.typeemp}}</td>
         <td>{{trainer.course}}</td>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { TrainersSearchModel } from './trainerssearch.module';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -9,7 +11,7 @@ import { TrainersSearchModel } from './trainerssearch.module';
 })
 export class SearchComponent implements OnInit {
  trainerslist:TrainersSearchModel[]=[]
-  constructor(private adminservice:AdminService) { }
+  constructor(private adminservice:AdminService, private router:Router) { }
 
   ngOnInit(): void {
     this.adminservice.getTrainers().subscribe((trainers)=>{
@@ -51,5 +53,11 @@ searchCourse(){
   this.adminservice.searchByCourse(this.coursesearch).subscribe((trainers)=>{
     this.trainerslist=JSON.parse(JSON.stringify(trainers));
   })
+}
+Allocate(trainer:any){
+  localStorage.setItem("gettrainerId", trainer._id.toString());
+  
+  this.router.navigate(['/admin/allocation']);
+
 }
 }

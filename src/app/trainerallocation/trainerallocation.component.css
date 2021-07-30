@@ -1,0 +1,10 @@
+.search-comp{
+    background-color: darkcyan;
+    padding: 2%;
+    width: 98%;
+    border-radius: 1em;
+    margin-left: 10px;
+    font-size: larger;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -18,6 +18,23 @@ export class AdminService {
   {
     return localStorage.getItem('token')
   }
+  getRequestlist(){
+    return this.http.get("http://localhost:3000/requestlist");
+  }
+  Reject(id:any)
+  {
+
+    return this.http.delete("http://localhost:3000/reject/"+id)
+
+  }
+  getRequest(id:any){
+    return this.http.get("http://localhost:3000/approverequest/"+id);
+  }
+  getApprove(approvedtrainer:any){
+    return this.http.post("http://localhost:3000/approvedtrainer",approvedtrainer)
+    .subscribe(data =>{console.log(data)})
+
+  }
   searchByName(name:any){
     return this.http.get("http://localhost:3000/search/"+name);
   }
@@ -34,5 +51,12 @@ export class AdminService {
   searchByCourse(course:any){
     
     return this.http.get("http://localhost:3000/search/course/"+course);
+  }
+  getTrainer(id:any){
+    return this.http.get("http://localhost:3000/getTrainer/"+id);
+  }
+  schedule(allocatedtrainer:any){
+    return this.http.post("http://localhost:3000/trainerallocate",allocatedtrainer)
+    .subscribe(data =>{console.log(data)})
   }
 }
