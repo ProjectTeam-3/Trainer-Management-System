@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { TrainerService } from '../trainer.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class TrainerComponent implements OnInit {
   //   trainerAddress:'',
   //   trainerPhone:''
   // }
-  constructor(private trainerservice:TrainerService,private router:Router) { }
+  constructor(private trainerservice:TrainerService,private router:Router,public _auth:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -86,5 +87,11 @@ addRequest(){
   
   this.router.navigate(['/success'])
 }
+logoutUser()
+  {
+  localStorage.removeItem('token')
+  this.router.navigate(['/login'])
+  }
+
 
 }
