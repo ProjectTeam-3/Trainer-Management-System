@@ -12,6 +12,8 @@ import { RequestsComponent } from './requests/requests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TrainerapproveComponent } from './trainerapprove/trainerapprove.component';
 import { SearchComponent } from './search/search.component';
+import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component'
+import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path:'aboutus',component:AboutusComponent},
   {path:'trainer',component:TrainerComponent,
   children:[
+    { path: 'profile', component: TrainerProfileComponent },
     {path:'enrollment',component:EnrollmentComponent},
     {path:'success',component:SuccessComponent}
   ]},
@@ -32,7 +35,8 @@ const routes: Routes = [
     {path:'search',component:SearchComponent},
     {
       path:'home',component:DashboardComponent
-    }
+    },
+    {path:'allocation',component:TrainerallocationComponent}
   ]},
   
 ];

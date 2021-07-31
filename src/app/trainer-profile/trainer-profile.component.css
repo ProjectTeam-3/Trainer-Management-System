@@ -1,0 +1,77 @@
+.coverview {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 30px;
+  border: #22236e solid 3px;
+  border-radius: 50%;
+  box-shadow: 1px 0px 10px 3px gray;
+}
+.card {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+}
+
+.name {
+  margin-top: 10px;
+}
+.label {
+  font-family: "Oswald", arial narrow, sans-serif;
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 67%;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.label-default {
+  color: #fff;
+  font-size: 16px;
+  margin: 12px 0;
+  text-align: left;
+  padding: 9px 20px;
+  border-radius: 10em;
+  display: inline-block;
+  background: #22236e;
+}
+
+.lbl {
+  color: #22236e;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.content {
+  width: 100%;
+  margin: 10px auto;
+  /* background: white; */
+  /* border: solid 1px black; */
+  /* font-family: 'initial'; */
+}
+
+.content h4 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.profile {
+  min-height: 550px;
+  display: flex;
+  flex-direction: inherit;
+  padding: 5rem 1.25rem;
+}
+
+.value {
+  font-size: 12px;
+  margin: 8px 0 20px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.form {
+  padding: 20px 0;
+}

@@ -4,10 +4,11 @@ const cors = require('cors');
 const userdata = require('./src/model/userdata');
 const jwt = require('jsonwebtoken');
 const nodemailer=require('nodemailer');
+const allocateddata=require('./src/model/allocateddata');
 const enrollmentdata=require('./src/model/enrollmentdata');
 const trainerdata=require('./src/model/trainerdata');
 const multer=require('multer');
-const { request } = require("http");
+// const { request } = require("http");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,25 +26,28 @@ app.post('/signup', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
   trainer = req.body.trainer;
-  console.log(trainer.traineremail);
+  // console.log(trainer.traineremail);
   var newuser = {
     useremail:trainer.traineremail,
     username: trainer.trainerusername,
     password: trainer.trainerpass,
     role: "normaluser"
   };
-  userdata.findOne({ useremail: trainer.traineremail.trim() } || { password: trainer.trainerpass.trim() })
+  userdata.findOne({ useremail: trainer.traineremail.trim() } )
     .then(function (data) {
+      // res.status(500).send("User already exixts")
       if (data === null) {
         var user = userdata(newuser);
         user.save();
         res.status(200).send();
       }
       else {
-        res.status(401).send("Invalid User name or password");
+      console.log("User already exixts")
+      res.status(401).send(false);
       }
-      console.log(newuser);
+      // console.log(user);
     });
+    
 });
 app.post('/signin', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
@@ -128,6 +132,15 @@ app.post('/request',(req,res)=>{
      }
   })
 })
+app.get('/trainerProfile', function (req, res) {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  trainerdata.findOne({ email: 'sandravinod98@gmail.com' })
+    .then(function (data) {
+      res.send(data);
+      console.log(data);
+    });
+});
 app.get('/requestlist', function (req, res) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
@@ -189,7 +202,7 @@ app.post('/approvedtrainer',async function (req, res) {
       service:'gmail',
       auth:{
         user:'ictakproject@gmail.com',
-        pass:'admin4ictak!'
+        pass:'ahngshycdtwaagvc'
       }
     }
   )
@@ -203,7 +216,7 @@ app.post('/approvedtrainer',async function (req, res) {
   }
   transport.sendMail(mailOptions,function(error,info){
     if(error){
-      console.log(error+" error insenting email")
+      console.log(error+" error in senting email")
     }
     else{
       console.log("email sent "+info.response)
@@ -262,6 +275,70 @@ app.get('/search/type/:typeemp',(req,res)=>{
     res.send(data);
   })
    
+})
+app.get('/getTrainer/:id',  (req, res) => {
+  
+  const id = req.params.id;
+  trainerdata.findOne({"_id":id})
+    .then((trainer)=>{
+      console.log('trainer '+trainer)
+        res.send(trainer);
+    });
+})
+app.post('/trainerallocate',async (req,res) => {
+  // console.log('allocated data '+req.body)
+  var allocatedlist = {
+    id:req.body.id,
+    fname:req.body.fname,
+    lname: req.body.lname,
+    email: req.body.email,
+    course: req.body.course,
+    startdate :req.body.startdate,
+    enddate:req.body.enddate,
+    time:req.body.time,
+    courseid:req.body.courseid,
+    batchid:req.body.batchid,
+    meetinglink:req.body.meetinglink
+  }
+  
+  
+  console.log('allocatedlist '+ allocatedlist)
+  var allocatedlist =new allocateddata(allocatedlist);
+  allocatedlist.save();
+  const traineremail=await allocateddata.findOne({email:allocatedlist.email})
+  
+  var transport=nodemailer.createTransport(
+    {
+      service:'gmail',
+      auth:{
+        user:'ictakproject@gmail.com',
+        pass:'ahngshycdtwaagvc'
+      }
+    }
+  )
+  
+  var mailOptions={
+    
+    from:'ictakproject@gmail.com',
+    to:allocatedlist.email,
+    subject:'You are Allocated ',
+    text:`Hi ${allocatedlist.fname}  ${allocatedlist.lname},You are assigned for the course ${allocatedlist.course}.The details are
+    Start Date:${allocatedlist.startdate},
+    End Date: ${allocatedlist.enddate},
+    Time:${allocatedlist.time},
+    Course Id: ${allocatedlist.courseid},     
+    Batch Id: ${allocatedlist.batchid},
+    Meeting Link: ${allocatedlist.meetinglink}
+    `
+  }
+  transport.sendMail(mailOptions,function(error,info){
+    if(error){
+      console.log(error+" error in senting email")
+    }
+    else{
+      console.log("email sent "+info.response)
+    }
+  }) 
 })
 
 

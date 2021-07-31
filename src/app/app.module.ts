@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,9 @@ import { RequestsComponent } from './requests/requests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TrainerapproveComponent } from './trainerapprove/trainerapprove.component';
 import { SearchComponent } from './search/search.component';
+import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component';
+import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
+
 
 
 @NgModule({
@@ -38,7 +44,9 @@ import { SearchComponent } from './search/search.component';
     RequestsComponent,
     DashboardComponent,
     TrainerapproveComponent,
-    SearchComponent
+    SearchComponent,
+    TrainerallocationComponent,
+    TrainerProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,7 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatDatepickerModule
     
   ],
   providers: [
