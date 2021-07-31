@@ -1,9 +1,11 @@
+
 <div class="container">
   <div class="row no-gutters align-items-stretch">
     <div class="col-md-4 text-center">
       <div class="card h-100">
         <div class="card-body profile">
-          <img src="./assets/{{trainer.img}}" class="coverview">
+          <img src="{{imagePath}}/{{trainer.img}}" class="coverview">
+          <!-- D:\Full Stack\Web\Trainer-Management-System\Backend\public\images\requests -->
           <div class="name">
             <h2>{{trainer.fname}} {{trainer.lname}}</h2>
           </div>
@@ -65,7 +67,7 @@
             <div class="lbl">Employment Type</div>
             <div class="value">
               <!-- <span class="d-none d-sm-inline">: </span> -->
-              {{trainer.type}}
+              {{trainer.typeemp}}
             </div>
 
           </div>

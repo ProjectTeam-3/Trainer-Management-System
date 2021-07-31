@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class TrainerProfileService {
 
   constructor(public http:HttpClient) { }
-  getTrainerProfile() {
-    return this.http.get('http://localhost:3000/trainerProfile');
+  getTrainerProfile(token:any) {
+    return this.http.get('http://localhost:3000/trainerProfile'+token);
   }
 }
