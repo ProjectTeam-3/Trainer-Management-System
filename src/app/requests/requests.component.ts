@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { request } from 'http';
-import { TrainerService } from '../trainer.service';
+import { AdminService } from '../admin.service';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-requests',
@@ -22,7 +23,7 @@ export class RequestsComponent implements OnInit {
   img: '',
   typeemp:''
   }]
-  constructor(private requestlistService:TrainerService,private router:Router) { }
+  constructor(private requestlistService:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     this.requestlistService.getRequestlist().subscribe((data)=>{
@@ -44,6 +45,7 @@ export class RequestsComponent implements OnInit {
     this.router.navigate(['/admin/approval']);
     // alert("Trainer is approved")
   }
+  
   
 
 }

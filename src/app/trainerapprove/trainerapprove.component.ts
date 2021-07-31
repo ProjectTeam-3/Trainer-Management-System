@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainerService } from '../trainer.service';
+import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,7 +23,7 @@ export class TrainerapproveComponent implements OnInit {
   typeemp:''
   }
   
-  constructor(private requestlistService:TrainerService,private router:Router) { }
+  constructor(private requestlistService:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     let  requestId = localStorage.getItem("editrequestId");

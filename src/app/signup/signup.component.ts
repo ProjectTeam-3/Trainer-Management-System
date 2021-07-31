@@ -18,8 +18,7 @@ export class SignupComponent implements OnInit {
   }
   AddTrainer()
   {    
-    this.TrainerService.newTrainer(this.userItem);
-    console.log("Called");    
+    this.TrainerService.newTrainer(this.userItem) 
     alert("Successfully Registered");
     this.router.navigate(['/login']);
   }

@@ -24,22 +24,6 @@ export class TrainerService {
       console.log(data);
     })
   }
-  getRequestlist(){
-    return this.http.get("http://localhost:3000/requestlist");
-  }
-  Reject(id:any)
-  {
-
-    return this.http.delete("http://localhost:3000/reject/"+id)
-
-  }
-  getRequest(id:any){
-    return this.http.get("http://localhost:3000/approverequest/"+id);
-  }
-  getApprove(approvedtrainer:any){
-    return this.http.post("http://localhost:3000/approvedtrainer",approvedtrainer)
-    .subscribe(data =>{console.log(data)})
-
-  }
+  
   
 }
