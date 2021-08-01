@@ -1,0 +1,34 @@
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+  <form   #Userlogin="ngForm" (ngSubmit)="userVerify()" id="form1">
+      <div class="form-group">
+          <label for="username">Username:<span style="color:red;">*</span></label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="user.username" id="username" required>
+        </div>
+      <div class="form-group">
+        <label for="email">Email address:<span style="color:red;">*</span></label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="user.email"  id="email" pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+\.([A-Za-z0-9]{2,4})(\.[a-z]{1,2})?$" #emailField="ngModel" required>
+        <p *ngIf="emailField.errors" style="color: rgb(124, 108, 14); background-color: rgb(238, 236, 211); padding: 6px; margin-top: 10px;">❗ Enter a valid Email Id!</p>,
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:<span style="color:red;">*</span></label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password"  pattern="^([A-Za-z0-9]{8,})*" id="pwd" required #pwdField="ngModel">
+        <p *ngIf="pwdField.errors" style="color: rgb(16, 80, 16); background-color: rgb(188, 233, 192); padding: 6px; margin-top: 10px;">❗ Password must Contain only Alphabets and Numbers!<br> ❗ Must contain atleast one Capital Letter one Small Letter and one number!<br>❗ Must have a minimum length of 8!</p> 
+      </div>
+      <!-- /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?!.*[@#$%^&*]).{8,}$/-->
+    <!--  -->
+      <label for="pwd">Re-enter Password:<span style="color:red;">*</span></label>
+        <input type="password" class="form-control"  [(ngModel)]="repwd" name="repwd" (keyup)="checkPwd()"  id="repwd" required>
+         <p *ngIf="user.password!=repwd" style="color: Red; background-color: rgb(255, 217, 215); padding: 6px; margin-top: 10px;">{{message}} </p>
+          <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button type="submit" id="bttn" [disabled]="(Userlogin.form.invalid)||(user.password!=repwd) " class="btn btn-primary" style="margin-left: 50%; ">Submit</button>
+    </form>
+  </div>
+
+    <div class="col-sm-3">
+
+  </div>
+ 
+

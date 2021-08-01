@@ -1,0 +1,28 @@
+<div class="container">
+    <form   (ngSubmit)="editBook()" #editBookForm="ngForm" >
+        
+    <table class="table"  >
+      <tr>
+          <th>Book Name</th>
+          <td><input type="text" placeholder="book name" name="title" class="form-control" value="{{title}}" [(ngModel)]="title" ></td>
+      </tr>
+      <tr>
+          <th>Author</th>
+          <td><input type="text" placeholder="author" name="author" class="form-control" value="{{author}}" [(ngModel)]="author" ></td>
+      </tr>
+      <tr>
+          <th>Genre</th>
+          <td><input type="text" placeholder="genre" name="genre" class="form-control" value="{{genre}}" [(ngModel)]="genre"></td>
+      </tr>
+      <tr>
+          <th>Image</th>
+          <td><input type="file" style="align-self: center;" name="img" (change)="onFileSelected($event)"> 
+           </td>
+      </tr>
+      <tr>
+            <td colspan="2"> <button type="submit" id="bttn1" class="btn btn-hover-primary">Update</button></td>
+      </tr>
+    </table>
+    
+    </form>
+</div>
