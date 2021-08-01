@@ -8,6 +8,7 @@ const allocateddata=require('./src/model/allocateddata');
 const enrollmentdata=require('./src/model/enrollmentdata');
 const trainerdata=require('./src/model/trainerdata');
 const multer=require('multer');
+app.use(express.static('public'));
 // const { request } = require("http");
 app.use(cors());
 app.use(express.json());
@@ -19,9 +20,11 @@ var storage=multer.diskStorage({
   destination:function(req,res,cb){
    cb(null,'./public/images/requests')
   },
-filename:function(req,file,cb){
-  cb(null,file.originalname)
-}});
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+});
+
 app.post('/signup', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -58,12 +61,9 @@ app.post('/signin', function (req, res) {
   userdata.findOne({ "useremail": trainer.traineremail })
     .then(function (data) {
       if (data.password === trainer.trainerpass) {
-        // console.log(data.role);
-        // console.log("successful login");
-
-        var payload = { subject: data.role }
-        var token = jwt.sign(payload, 'aspkey');
-        res.status(200).send({ token:token,email:trainer.traineremail });
+        var payload = { subject: data.useremail }
+        var token = jwt.sign(payload, 'secretkey');
+        res.status(200).send({ token,email:trainer.traineremail });
         // res.status(200);
       }
       else {
@@ -131,11 +131,15 @@ app.post('/request',(req,res)=>{
        enrollment.save();
      }
   })
-})
-app.post('/trainerProfile', function (req, res) {
+});
+
+app.get('/trainerProfile:token', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-  trainerdata.findOne({ email: req.body.email })
+
+  token = req.params.token;
+  payload = jwt.verify(token, 'secretkey');
+  trainerdata.findOne({ email: payload.subject })
     .then(function (data) {
       res.send(data);
       console.log(data);

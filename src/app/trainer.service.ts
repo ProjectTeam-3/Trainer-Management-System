@@ -27,10 +27,10 @@ export class TrainerService {
   checkApproved(email:any){
     console.log(email);
     return this.http.post("http://localhost:3000/checkapproved",{email:email}).subscribe((data)=>{
-      localStorage.setItem('approved','true')
+     sessionStorage.setItem('approved','true');
     });
   }
   checkApp(){
-    return !!localStorage.getItem('approved');
+    return !!sessionStorage.getItem('approved');
   }
 }

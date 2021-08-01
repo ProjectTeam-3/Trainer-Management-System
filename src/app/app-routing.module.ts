@@ -34,10 +34,11 @@ const routes: Routes = [
     {path:'approval',component:TrainerapproveComponent},
     {path:'',component:DashboardComponent},
     {path:'search',component:SearchComponent},
+    {path:'allocation',component:TrainerallocationComponent},
+
     {
       path:'home',component:DashboardComponent
     },
-    {path:'allocation',component:TrainerallocationComponent}
   ]},
   
 ];

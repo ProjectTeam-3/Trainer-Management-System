@@ -5,32 +5,32 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a routerLink="dashboard" class='active' >
+          <a routerLink="dashboard" class='active' *ngIf="_adminService.loggedIn()">
             <i class="bi bi-layout-text-sidebar-reverse"></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a routerLink="requests">
+          <a routerLink="requests" *ngIf="_adminService.loggedIn()">
             <i class="bi bi-envelope-open-fill"></i>
             <span class="links_name">Trainer Requests</span>
           </a>
         </li>
         <li>
-          <a routerLink="search">
+          <a routerLink="search" *ngIf="_adminService.loggedIn()">
             <i class="bi bi-list-check"></i>
             <span class="links_name">Trainers list</span>
           </a>
         </li>
         <li>
-          <a routerLink="/allocate">
+          <a routerLink="/allocate" *ngIf="_adminService.loggedIn()">
             <i class="bi bi-ui-checks"></i>
             <span class="links_name">Allocated Trainers</span>
           </a>
         </li>
        
-        <li class="log_out">
-          <a routerLink="/login">
+        <li class="log_out" *ngIf="_adminService.loggedIn()" (click)='logoutUser()'>
+          <a >
             <i class="bi bi-box-arrow-right"></i>
             <span class="links_name">Log out</span>
           </a>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { environment } from 'src/environments/environment';
 import { TrainerProfileService } from '../trainer-profile.service';
 
 @Component({
@@ -9,13 +10,17 @@ import { TrainerProfileService } from '../trainer-profile.service';
 })
 export class TrainerProfileComponent implements OnInit {
   trainer:any;
-  email=localStorage.getItem('email');
-  constructor(private getProfile:TrainerProfileService,private router:Router) { }
+  token:any;
+  imagePath: string;
+  
+  constructor(private getProfile:TrainerProfileService ,private gettoken:AuthService) {
+    this.imagePath= environment.imagePath
+  }
 
   ngOnInit(): void {
-    this.getProfile.getTrainerProfile(this.email)
+    this.token=this.gettoken.getToken();
+    this.getProfile.getTrainerProfile(this.token)
     .subscribe((data)=>{
-      console.log(data);
       this.trainer=data;
     })
   }

@@ -5,28 +5,38 @@
       <span class="logo_name">TRAINER</span>
     </div>
       <ul class="nav-links">
-        <li>
+        
+          
+        <li *ngIf="_auth.loggedIn() ">
           <a *ngIf="!trainerservice.checkApp()" routerLink="enrollment" >
+          
             <i class="bi bi-layout-text-sidebar-reverse"></i>
             <span class="links_name">Enrollment Form</span>
           </a>
         </li>
-        <li>
+        
+          
+        <li *ngIf="_auth.loggedIn() " >
           <a *ngIf="trainerservice.checkApp()" routerLink="profile">
+          
             <i class="bi bi-envelope-open-fill"></i>
             <span class="links_name">Profile</span>
           </a>
         </li>
-        <li>
+       
+          
+        <li *ngIf="_auth.loggedIn() " >
           <a *ngIf="trainerservice.checkApp()" routerLink="schedule">
+          
             <i class="bi bi-list-check"></i>
             <span class="links_name">Schedule</span>
           </a>
         </li>
        
        
-        <li class="log_out">
-          <a (click)="logOut()" routerLink="/login">
+        
+        <li class="log_out"  *ngIf="_auth.loggedIn()" (click)='logoutUser()' >
+          <a >
             <i class="bi bi-box-arrow-right"></i>
             <span class="links_name">Log out</span>
           </a>
