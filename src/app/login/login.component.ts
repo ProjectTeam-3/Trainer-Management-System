@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       res => {
         alert('successful login');
         this.router.navigate(['/trainer'])
-
+        localStorage.setItem('email',res.email)
         localStorage.setItem('token', res.token)
       },
       err => {

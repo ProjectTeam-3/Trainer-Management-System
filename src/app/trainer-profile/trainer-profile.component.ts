@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TrainerProfileService } from '../trainer-profile.service';
 
 @Component({
@@ -8,11 +9,11 @@ import { TrainerProfileService } from '../trainer-profile.service';
 })
 export class TrainerProfileComponent implements OnInit {
   trainer:any;
-  
-  constructor(private getProfile:TrainerProfileService) { }
+  email=localStorage.getItem('email');
+  constructor(private getProfile:TrainerProfileService,private router:Router) { }
 
   ngOnInit(): void {
-    this.getProfile.getTrainerProfile()
+    this.getProfile.getTrainerProfile(this.email)
     .subscribe((data)=>{
       console.log(data);
       this.trainer=data;

@@ -13,7 +13,10 @@
     margin-top: 2%;
     width: 98%;
     margin-left: 10px;
-   
+  
+}
+.table{
+  margin-top: -50%;
 }
 th,td{
     padding: 1%;
@@ -123,7 +126,7 @@ th,td{
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background: #fff;
+  background:rgb(0, 139, 139);
   display: flex;
   align-items: center;
   position: fixed;

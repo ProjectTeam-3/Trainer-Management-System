@@ -22,7 +22,7 @@ export class EnrollmentComponent implements OnInit {
   fname="";
   lname="";
   address="";
-  email="";
+  email:any=localStorage.getItem('email');
   phno="";
   qual="";
   skill="";

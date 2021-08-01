@@ -32,7 +32,7 @@ export class AdminService {
   }
   getApprove(approvedtrainer:any){
     return this.http.post("http://localhost:3000/approvedtrainer",approvedtrainer)
-    .subscribe(data =>{console.log(data)})
+    .subscribe(data =>{console.log(data)});
 
   }
   searchByName(name:any){

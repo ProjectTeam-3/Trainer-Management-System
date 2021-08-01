@@ -24,7 +24,8 @@ const routes: Routes = [
   children:[
     { path: 'profile', component: TrainerProfileComponent },
     {path:'enrollment',component:EnrollmentComponent},
-    {path:'success',component:SuccessComponent}
+    {path:'success',component:SuccessComponent},
+    
   ]},
   {path:'admin',component:AdminComponent,
   children:[

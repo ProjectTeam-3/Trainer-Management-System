@@ -54,16 +54,16 @@ app.post('/signin', function (req, res) {
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
   res.status(200);
   trainer = req.body.trainer;
-  console.log(trainer);
+  // console.log(trainer);
   userdata.findOne({ "useremail": trainer.traineremail })
     .then(function (data) {
       if (data.password === trainer.trainerpass) {
-        console.log(data.role);
-        console.log("successful login");
+        // console.log(data.role);
+        // console.log("successful login");
 
         var payload = { subject: data.role }
         var token = jwt.sign(payload, 'aspkey');
-        res.status(200).send({ token });
+        res.status(200).send({ token:token,email:trainer.traineremail });
         // res.status(200);
       }
       else {
@@ -132,10 +132,10 @@ app.post('/request',(req,res)=>{
      }
   })
 })
-app.get('/trainerProfile', function (req, res) {
+app.post('/trainerProfile', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-  trainerdata.findOne({ email: 'sandravinod98@gmail.com' })
+  trainerdata.findOne({ email: req.body.email })
     .then(function (data) {
       res.send(data);
       console.log(data);
@@ -340,8 +340,31 @@ app.post('/trainerallocate',async (req,res) => {
     }
   }) 
 })
+app.post('/editProfile',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  email=req.body.email;
+  console.log(email);
+  trainerdata.findOne({email:email}).then((trainer)=>{
+    
+    res.send(trainer);
+    
+  })
 
-
+})
+app.post('/checkapproved',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.body.email);
+  useremail=req.body.email;
+  trainerdata.findOne({email:useremail}).then((data)=>{
+    if(data){
+      res.send();
+    }
+    
+  })
+  
+ })
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");

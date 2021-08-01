@@ -7,7 +7,11 @@ import { Injectable } from '@angular/core';
 export class TrainerProfileService {
 
   constructor(public http:HttpClient) { }
-  getTrainerProfile() {
-    return this.http.get('http://localhost:3000/trainerProfile');
+  getTrainerProfile(email:any) {
+    return this.http.post('http://localhost:3000/trainerProfile',{email});
+  }
+  editProfile(email:any){
+    
+    return this.http.post('http://localhost:3000/editProfile',{email});
   }
 }
