@@ -369,6 +369,23 @@ app.post('/checkapproved',(req,res)=>{
   })
   
  })
+ app.get('/allocatedlist', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  allocateddata.find()
+    .then(function (trainer) {
+      res.send(trainer);  
+    }); 
+});
+app.delete('/remove/:id',(req,res)=>{
+   
+  id = req.params.id;
+  trainerdata.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('removed a trainer ')
+      res.send();
+  })
+})
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
