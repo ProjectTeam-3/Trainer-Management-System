@@ -10,4 +10,8 @@ export class TrainerProfileService {
   getTrainerProfile(token:any) {
     return this.http.get('http://localhost:3000/trainerProfile'+token);
   }
+  editTrainerProfile(form:any) {
+    console.log(form);
+    return this.http.post('http://localhost:3000/editTrainerProfile',form);
+  }
 }
