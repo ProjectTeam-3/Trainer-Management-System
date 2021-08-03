@@ -32,7 +32,7 @@ export class AdminService {
   }
   getApprove(approvedtrainer:any){
     return this.http.post("http://localhost:3000/approvedtrainer",approvedtrainer)
-    .subscribe(data =>{console.log(data)})
+    .subscribe(data =>{console.log(data)});
 
   }
   searchByName(name:any){
@@ -58,5 +58,14 @@ export class AdminService {
   schedule(allocatedtrainer:any){
     return this.http.post("http://localhost:3000/trainerallocate",allocatedtrainer)
     .subscribe(data =>{console.log(data)})
+  }
+  getAllocatedlist(){
+    return this.http.get("http://localhost:3000/allocatedlist");
+  }
+  Remove(id:any)
+  {
+
+    return this.http.delete("http://localhost:3000/remove/"+id)
+
   }
 }

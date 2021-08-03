@@ -14,7 +14,9 @@ import { TrainerapproveComponent } from './trainerapprove/trainerapprove.compone
 import { SearchComponent } from './search/search.component';
 import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component'
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
-
+import { AllocatedListComponent } from './allocated-list/allocated-list.component';
+import { TrainerListComponent } from './trainer-list/trainer-list.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -24,7 +26,9 @@ const routes: Routes = [
   children:[
     { path: 'profile', component: TrainerProfileComponent },
     {path:'enrollment',component:EnrollmentComponent},
-    {path:'success',component:SuccessComponent}
+    {path:'success',component:SuccessComponent},
+    {path:'schedule',component:ScheduleComponent}
+    
   ]},
   {path:'admin',component:AdminComponent,
   children:[
@@ -33,10 +37,12 @@ const routes: Routes = [
     {path:'approval',component:TrainerapproveComponent},
     {path:'',component:DashboardComponent},
     {path:'search',component:SearchComponent},
+    {path:'allocation',component:TrainerallocationComponent},
+    {path:'allocatedlist',component:AllocatedListComponent},
+    {path:'trainerlist',component:TrainerListComponent},
     {
       path:'home',component:DashboardComponent
     },
-    {path:'allocation',component:TrainerallocationComponent}
   ]},
   
 ];

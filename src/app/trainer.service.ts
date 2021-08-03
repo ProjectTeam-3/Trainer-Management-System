@@ -24,6 +24,13 @@ export class TrainerService {
       console.log(data);
     })
   }
-  
-  
+  checkApproved(email:any){
+    console.log(email);
+    return this.http.post("http://localhost:3000/checkapproved",{email:email}).subscribe((data)=>{
+     sessionStorage.setItem('approved','true');
+    });
+  }
+  checkApp(){
+    return !!sessionStorage.getItem('approved');
+  }
 }

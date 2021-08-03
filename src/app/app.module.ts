@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-// import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +22,9 @@ import { TrainerapproveComponent } from './trainerapprove/trainerapprove.compone
 import { SearchComponent } from './search/search.component';
 import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
-
+import { AllocatedListComponent } from './allocated-list/allocated-list.component';
+import { TrainerListComponent } from './trainer-list/trainer-list.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -45,6 +46,9 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
     SearchComponent,
     TrainerallocationComponent,
     TrainerProfileComponent,
+    AllocatedListComponent,
+    TrainerListComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,6 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
     HttpClientModule,
     ReactiveFormsModule,
     // MatDatepickerModule
-
   ],
   providers: [
     {

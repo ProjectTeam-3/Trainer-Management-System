@@ -1,4 +1,14 @@
-<div class="signup-form">
+<section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="bi bi-person-lines-fill"></i>
+        <span class="dashboard">Enrollment Form</span>
+      </div>
+     
+      
+    </nav>
+    <div class="home-content">
+    <div class="signup-form">
     <form (ngSubmit)="addRequest()" class="register-form"  #trainerEnroll="ngForm" ngNativeValidate>
       <div class="Image" >
         <img [src]="url" class="rounded mx-auto d-block" width="150vh" name="img" height="200vh" [(ngModel)]="img" alt="..." style="margin-left: 20%;" >
@@ -24,7 +34,7 @@
                 </div>
                 <div class="form-input">
                     <label for="email" class="required">Email</label>
-                    <input type="email" name="email" id="email" [(ngModel)]="email" required/>
+                    <input type="email" name="email" id="email" [(ngModel)]="email" disabled required/>
                 </div>
                 <div class="form-input">
                     <label for="phone_number" class="required">Phone number</label>
@@ -69,3 +79,5 @@
         </div>
     </form>
 </div>
+</div>
+</section>

@@ -65,7 +65,7 @@ app.post('/signin', function (req, res) {
       if (data.password === trainer.trainerpass) {
         var payload = { subject: data.useremail }
         var token = jwt.sign(payload, 'secretkey');
-        res.status(200).send({ token });
+        res.status(200).send({ token, email: trainer.traineremail });
         // res.status(200);
       }
       else {
@@ -347,6 +347,18 @@ app.post('/trainerallocate', async (req, res) => {
   })
 })
 
+app.post('/editProfile', (req, res) => {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  email = req.body.email;
+  console.log(email);
+  trainerdata.findOne({ email: email }).then((trainer) => {
+
+    res.send(trainer);
+
+  });
+});
+
 app.post('/editTrainerProfile', (req, res) => {
   // res.header("Access-Control-Allow-Orgin", "*");
   // res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -373,6 +385,36 @@ app.post('/editTrainerProfile', (req, res) => {
     res.status(200).send();
   })
 });
+
+app.post('/checkapproved', (req, res) => {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  console.log(req.body.email);
+  useremail = req.body.email;
+  trainerdata.findOne({ email: useremail }).then((data) => {
+    if (data) {
+      res.send();
+    }
+  });
+});
+
+app.get('/allocatedlist', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  allocateddata.find()
+    .then(function (trainer) {
+      res.send(trainer);
+    });
+});
+app.delete('/remove/:id', (req, res) => {
+
+  id = req.params.id;
+  trainerdata.findByIdAndDelete({ "_id": id })
+    .then(() => {
+      console.log('removed a trainer ')
+      res.send();
+    })
+})
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");

@@ -5,28 +5,35 @@
       <span class="logo_name">TRAINER</span>
     </div>
       <ul class="nav-links">
-        <li>
-          <a routerLink="enrollment" >
-            <i class="bi bi-layout-text-sidebar-reverse"></i>
+        
+          
+        <li *ngIf="_auth.loggedIn() ">
+          <a *ngIf="!trainerservice.checkApp()" routerLink="enrollment" >
+            <i class="bi bi-person-lines-fill"></i>
             <span class="links_name">Enrollment Form</span>
           </a>
         </li>
-        <li>
-          <a routerLink="profile">
-            <i class="bi bi-envelope-open-fill"></i>
+        
+          
+        <li *ngIf="_auth.loggedIn() " >
+          <a *ngIf="trainerservice.checkApp()" routerLink="profile">
+            <i class="bi bi-person-circle"></i>
             <span class="links_name">Profile</span>
           </a>
         </li>
-        <li>
-          <a routerLink="schedule">
-            <i class="bi bi-list-check"></i>
+       
+          
+        <li *ngIf="_auth.loggedIn() " >
+          <a *ngIf="trainerservice.checkApp()" routerLink="schedule">
+            <i class="bi bi-calendar-range-fill"></i>
             <span class="links_name">Schedule</span>
           </a>
         </li>
        
        
-        <li class="log_out">
-          <a routerLink="/login">
+        
+        <li class="log_out"  *ngIf="_auth.loggedIn()" (click)='logoutUser()' >
+          <a >
             <i class="bi bi-box-arrow-right"></i>
             <span class="links_name">Log out</span>
           </a>
@@ -34,19 +41,19 @@
       </ul>
   </div>
   <section class="home-section">
-    <nav>
+    <!-- <nav>
       <div class="sidebar-button">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
-        <span class="dashboard">Enrollment Form</span>
+        <span class="dashboard">Home</span>
       </div>
      
       
-    </nav>
+    </nav> -->
 
-    <div class="home-content">
+    <!-- <div class="home-content"> -->
       <router-outlet></router-outlet>
     
-    </div>
+    <!-- </div> -->
   </section>
 
   <script>
