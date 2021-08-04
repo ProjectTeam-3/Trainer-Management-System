@@ -12,25 +12,34 @@ import { TrainerProfileService } from '../trainer-profile.service';
 export class ScheduleComponent implements OnInit {
 
   constructor(private calender:TrainerProfileService,private gettoken:AuthService) { }
-  schedules=[{
-    fname:'',
-    lname: '',
-    course: '',
-    email: '',
-    startdate :'',
-    enddate:'',
-    time:'',
-    courseid:'',
-    batchid:'',
-    meetinglink:''
-  }];
- 
+  schedules:any=[];
+ items:CalendarEvent[]=[]
 
   ngOnInit(): void {
-    this.calender.getSchedule()
+    var email=localStorage.getItem('email')
+    this.calender.getSchedule(email)
     .subscribe((data)=>{
       this.schedules=(JSON.parse(JSON.stringify(data)))
+      
+      for(let i=0;i<=this.schedules.length;i++){
+      
+        // this.events.push({
+        //   start:startOfDay(new Date(this.schedules[i].startdate)),
+        //   end:new Date(this.schedules[i].enddate),
+        //   title: 'course id:' +this.schedules[i].courseid,
+        // })
+        this.items.push({
+          start:startOfDay(new Date(this.schedules[i].startdate)),
+          end:new Date(this.schedules[i].enddate),
+          title: 'course id:' +this.schedules[i].courseid,
+          
+        })
+       console.log(this.events);
+        this.events=this.items;
+      }
+      
     })
+    console.log(this.schedules)
     
   }
   viewDate: Date = new Date();
@@ -40,17 +49,7 @@ export class ScheduleComponent implements OnInit {
   setView(view: CalendarView) {
     this.view = view;
   }
-  events: CalendarEvent[] = [
-    {
-      start:startOfDay(new Date(this.schedules[0].startdate)),
-      end:new Date('2021-8-20'),
-      title: 'First event',
-    },
-    // {
-    //   start: startOfDay(new Date()),
-    //   title: 'Second event',
-    // }
-  ]
+  events: CalendarEvent[]=[]
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {

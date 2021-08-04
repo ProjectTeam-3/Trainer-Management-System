@@ -425,13 +425,13 @@ app.delete('/remove/:id', (req, res) => {
       res.send();
     })
 })
-app.get('/schedule', function (req, res) {
+app.post('/schedule', function (req, res) {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-
+  email=req.body.email;
   // token = req.params.token;
   // payload = jwt.verify(token, 'secretkey');
-  allocateddata.find({ email: 'rinshamr99@gmail.com'})
+  allocateddata.find({ email:email})
     .then(function (data) {
       res.send(data);
       console.log(data);
