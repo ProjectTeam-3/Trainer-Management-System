@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 // import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -10,6 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
    
 
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+>>>>>>> ed37b2cb7c0d56cd307c7ec2b9e0555670cd7a9a
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +26,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
-import { TokenInterceptorService} from './token-interceptor.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { RequestsComponent } from './requests/requests.component';
@@ -30,8 +35,14 @@ import { TrainerapproveComponent } from './trainerapprove/trainerapprove.compone
 import { SearchComponent } from './search/search.component';
 import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+=======
+import { AllocatedListComponent } from './allocated-list/allocated-list.component';
+import { TrainerListComponent } from './trainer-list/trainer-list.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+>>>>>>> ed37b2cb7c0d56cd307c7ec2b9e0555670cd7a9a
 
 
 @NgModule({
@@ -53,6 +64,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchComponent,
     TrainerallocationComponent,
     TrainerProfileComponent,
+    AllocatedListComponent,
+    TrainerListComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
@@ -67,12 +82,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule 
     
+=======
+    // MatDatepickerModule
+>>>>>>> ed37b2cb7c0d56cd307c7ec2b9e0555670cd7a9a
   ],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:TokenInterceptorService,
-      multi:true
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

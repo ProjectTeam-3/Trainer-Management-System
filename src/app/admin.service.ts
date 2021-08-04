@@ -63,4 +63,13 @@ export class AdminService {
   
   return this.http.post("http://localhost:3000/checkdates",{email:email});
   }
+  getAllocatedlist(){
+    return this.http.get("http://localhost:3000/allocatedlist");
+  }
+  Remove(id:any)
+  {
+
+    return this.http.delete("http://localhost:3000/remove/"+id)
+
+  }
 }
