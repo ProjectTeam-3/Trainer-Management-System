@@ -10,4 +10,8 @@ export class TrainerProfileService {
   getTrainerProfile(token:any) {
     return this.http.get('http://localhost:3000/trainerProfile'+token);
   }
+  getSchedule(){
+    return this.http.get('http://localhost:3000/schedule');
+
+  }
 }

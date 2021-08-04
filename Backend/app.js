@@ -386,6 +386,18 @@ app.delete('/remove/:id',(req,res)=>{
       res.send();
   })
 })
+app.get('/schedule', function (req, res) {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+
+  // token = req.params.token;
+  // payload = jwt.verify(token, 'secretkey');
+  allocateddata.find({ email: 'rinshamr99@gmail.com'})
+    .then(function (data) {
+      res.send(data);
+      console.log(data);
+    });
+});
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
