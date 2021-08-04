@@ -25,20 +25,26 @@
                                               </div>
                                               <div class="row px-5 inpbox"> <label class="mb-1">
                                                 <h6 class="mb-0 text-sm">Type of Trainer:</h6>
-                                                </label> <input class="mb-4" type="text" readonly  name="typeemp" [(ngModel)]=" trainer.typeemp" readonly>
+                                                </label> <input class="mb-4" type="text" readonly   name="typeemp" [(ngModel)]=" trainer.typeemp" readonly>
                                               </div><br>
                                               <div class="row px-5 inpbox"> <label class="mb-1">
                                                 <h6 class="mb-0 text-sm">Start date:</h6>
-                                                </label> <input class="mb-4" type="date" name="startdate" [(ngModel)]=" trainer.startdate" required >
+                                                </label>
+                                                
+                                                  <input class="mb-4" type="date" name="startdate" [(ngModel)]=" trainer.startdate" required >  
+                                                 
                                               </div><br>
                                                 <div class="row px-5 inpbox"> <label class="mb-1">
                                                     <h6 class="mb-0 text-sm">End Date:</h6>
-                                                  </label> <input class="mb-4" type="date" name="enddate"  [(ngModel)]="trainer.enddate" required>
+                                                  </label> 
+                                                  <input class="mb-4" type="date" name="enddate" (change)="validate()" [(ngModel)]="trainer.enddate" required> 
+                                                  
                                                 </div><br>
-                                             
+                                                
                                                 <div class="row px-5 inpbox"> <label class="mb-1">
                                                     <h6 class="mb-0 text-sm">Time:</h6>
                                                   </label> <input type="time" name="time" class="mb-4"  [(ngModel)]="trainer.time" required>
+
                                                 </div>
                                                 <br>
                                               </div>

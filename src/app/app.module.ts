@@ -4,6 +4,11 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+   
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +30,7 @@ import { TrainerapproveComponent } from './trainerapprove/trainerapprove.compone
 import { SearchComponent } from './search/search.component';
 import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -54,7 +60,12 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // MatDatepickerModule
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule 
     
   ],
   providers: [

@@ -369,7 +369,13 @@ app.post('/checkapproved',(req,res)=>{
   })
   
  })
-
+app.post('/checkdates',(req,res)=>{
+  email=req.body.email;
+  console.log(email);
+  allocateddata.find({email:email}).then((data)=>{
+    res.send(data);
+  })
+})
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
 });
