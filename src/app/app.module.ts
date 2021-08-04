@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+   
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +24,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { AdminComponent } from './admin/admin.component';
-import { TokenInterceptorService} from './token-interceptor.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 import { SuccessComponent } from './success/success.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { RequestsComponent } from './requests/requests.component';
@@ -24,9 +33,14 @@ import { TrainerapproveComponent } from './trainerapprove/trainerapprove.compone
 import { SearchComponent } from './search/search.component';
 import { TrainerallocationComponent } from './trainerallocation/trainerallocation.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { AllocatedListComponent } from './allocated-list/allocated-list.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+
 
 
 @NgModule({
@@ -62,12 +76,21 @@ import { ScheduleComponent } from './schedule/schedule.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule 
+    
+
   ],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:TokenInterceptorService,
-      multi:true
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

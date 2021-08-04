@@ -12,6 +12,9 @@ export class TrainerProfileService {
   }
   getSchedule(){
     return this.http.get('http://localhost:3000/schedule');
-
+  }
+  editTrainerProfile(form:any) {
+    console.log(form);
+    return this.http.post('http://localhost:3000/editTrainerProfile',form);
   }
 }

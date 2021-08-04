@@ -59,6 +59,10 @@ export class AdminService {
     return this.http.post("http://localhost:3000/trainerallocate",allocatedtrainer)
     .subscribe(data =>{console.log(data)})
   }
+  checkDates(email:any){
+  
+  return this.http.post("http://localhost:3000/checkdates",{email:email});
+  }
   getAllocatedlist(){
     return this.http.get("http://localhost:3000/allocatedlist");
   }
