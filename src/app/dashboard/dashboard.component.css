@@ -133,14 +133,11 @@ nav .sidebar-button i{
   justify-content: center;
   width: calc(100% / 4 - 15px);
   background: #fff;
-<<<<<<< HEAD
-=======
 
   padding: 15px 14px; 
 
   /* background-color: #DEF2F1; */
 
->>>>>>> b341c827ec51fee85c3e121217d531d5538018df
   padding: 15px 14px;
 
   border-radius: 12px;

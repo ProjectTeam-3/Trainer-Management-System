@@ -5,8 +5,8 @@ import { CalendarEvent, CalendarEventAction, CalendarView } from 'angular-calend
 import { startOfDay } from 'date-fns';
 import { AuthService } from '../auth.service';
 import { TrainerProfileService } from '../trainer-profile.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Subject } from 'rxjs';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { Subject } from 'rxjs';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -14,8 +14,8 @@ import { Subject } from 'rxjs';
 })
 
 export class ScheduleComponent implements OnInit {
-  
-  constructor(private calender:TrainerProfileService,private gettoken:AuthService,private modal: NgbModal) { }
+  // private modal: NgbModal
+  constructor(private calender:TrainerProfileService,private gettoken:AuthService,) { }
 
   schedules:any=[];
  items:CalendarEvent[]=[]
