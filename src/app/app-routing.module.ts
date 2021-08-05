@@ -17,6 +17,9 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
 import { AllocatedListComponent } from './allocated-list/allocated-list.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+
+
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -24,10 +27,12 @@ const routes: Routes = [
   {path:'aboutus',component:AboutusComponent},
   {path:'trainer',component:TrainerComponent,
   children:[
+    {path:'',component:TrainerHomeComponent},
     { path: 'profile', component: TrainerProfileComponent },
     {path:'enrollment',component:EnrollmentComponent},
     {path:'success',component:SuccessComponent},
-    {path:'schedule',component:ScheduleComponent}
+    {path:'schedule',component:ScheduleComponent},
+    
     
   ]},
   {path:'admin',component:AdminComponent,
