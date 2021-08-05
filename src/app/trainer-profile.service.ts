@@ -10,8 +10,8 @@ export class TrainerProfileService {
   getTrainerProfile(token:any) {
     return this.http.get('http://localhost:3000/trainerProfile'+token);
   }
-  getSchedule(){
-    return this.http.get('http://localhost:3000/schedule');
+  getSchedule(email:any){
+    return this.http.post('http://localhost:3000/schedule',{email:email});
   }
   editTrainerProfile(form:any) {
     console.log(form);

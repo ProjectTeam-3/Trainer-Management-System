@@ -30,6 +30,7 @@ export class TrainerListComponent implements OnInit {
   ngOnInit(): void {
     this.adminservice.getTrainers().subscribe((data)=>{
     this.trainers=(JSON.parse(JSON.stringify(data)))})
+    console.log(this.imagePath);
   }
   Allocate(trainer:any){
     localStorage.setItem("gettrainerId", trainer._id.toString());
