@@ -33,6 +33,8 @@ export class ScheduleComponent implements OnInit {
           end:new Date(this.schedules[i].enddate),
           title: 'course id:' +this.schedules[i].courseid,
           
+          
+          
         })
        console.log(this.events);
         this.events=this.items;
@@ -53,6 +55,8 @@ export class ScheduleComponent implements OnInit {
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    // alert(JSON.stringify(events));
+    // console.log(events);
     console.log(date);
     
   }

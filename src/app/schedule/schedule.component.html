@@ -60,7 +60,51 @@
         </mwl-calendar-day-view>
     
     </div>
-    
+    <br><br>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+                <th>Batch</th>
+                <th>Course</th>
+               
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Time</th>
+              
+              <th>Meeting Link/Venue</th>
+
+            </tr>
+          </thead>
+      
+          <tbody>
+            <tr *ngFor="let schedule of schedules">
+                <td>
+                    {{schedule.batchid}} 
+                  </td>
+                <td>
+                    {{schedule.course}}
+                  </td>
+                 
+              <td>
+                {{schedule.startdate}}
+              </td>
+              <td>
+                {{schedule.enddate}}
+              </td>
+              <td>
+                {{schedule.time}}
+              </td>
+              
+              <td>
+            
+                {{schedule.meetinglink}} 
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   
     </div>
 </section>
