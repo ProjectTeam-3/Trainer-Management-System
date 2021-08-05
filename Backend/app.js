@@ -129,8 +129,8 @@ app.post('/request', (req, res) => {
       else {
         console.log("error in saving the image")
       }
-      // var enrollment = new enrollmentdata(item);
-      // enrollment.save();
+      var enrollment = new enrollmentdata(item);
+      enrollment.save();
     }
   })
 });
@@ -180,7 +180,7 @@ app.post('/approvedtrainer', async function (req, res) {
   console.log(req.body);
   var fname = req.body.fname;
   var typeemp = req.body.typeemp;
-  var id = fname.toUpperCase() + '_' + typeemp.toUpperCase();
+  var id = fname.toUpperCase() + '_' + typeemp.toUpperCase().substr(0,3) + '_' + Math.random().toString(36).substr(2, 9).toUpperCase();;
   var approvedlist = {
     fname: req.body.fname,
     lname: req.body.lname,
@@ -217,8 +217,14 @@ app.post('/approvedtrainer', async function (req, res) {
 
     from: 'ictakproject@gmail.com',
     to: approvedlist.email,
-    subject: 'You are Approved',
-    text: `Congratulations ${approvedlist.fname}  ${approvedlist.lname}.You are approved as ${approvedlist.typeemp}  Trainer and your ID is ${approvedlist.id}.`
+    subject: 'You are Approved as an ICT Trainer',
+    text: `Congratulations ${approvedlist.fname}  ${approvedlist.lname}.Thank you for being a part of ICT Trainers.You are approved as ${approvedlist.typeemp}  Trainer for course ${approvedlist.course} and your ID is ${approvedlist.id}.
+    
+    Please contact us regarding any query.
+
+    Thanks and Regards,
+    ICTAK TEAM
+    `
   }
   transport.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -327,14 +333,19 @@ app.post('/trainerallocate', async (req, res) => {
 
     from: 'ictakproject@gmail.com',
     to: allocatedlist.email,
-    subject: 'You are Allocated ',
-    text: `Hi ${allocatedlist.fname}  ${allocatedlist.lname},You are assigned for the course ${allocatedlist.course}.The details are
+    subject: 'ICT Trainer Schedule ',
+    text: `Hi ${allocatedlist.fname}  ${allocatedlist.lname} ,You are assigned for the course ${allocatedlist.course}.The details are
     Start Date:${allocatedlist.startdate},
     End Date: ${allocatedlist.enddate},
     Time:${allocatedlist.time},
     Course Id: ${allocatedlist.courseid},     
     Batch Id: ${allocatedlist.batchid},
     Meeting Link: ${allocatedlist.meetinglink}
+
+    Please contact us regarding any query.
+
+    Thanks and Regards,
+    ICTAK TEAM
     `
   }
   transport.sendMail(mailOptions, function (error, info) {
