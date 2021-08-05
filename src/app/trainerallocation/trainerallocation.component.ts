@@ -29,10 +29,10 @@ export class TrainerallocationComponent implements OnInit {
   meetinglink:''
   }
   courseids=[
-    "C_XR_A","CCSA","CSFSD",
-    "CSDSA","MSTRPA",
-    "MSTDMS","CSMLAI",
-    "MOODLE","ARM_E_S ","IOTEA","AWSEDU"
+    "CXR001","CSA002","FSD003",
+    "DSA004","RPA005",
+    "DMS006","MLAI007",
+    "MOODLE008","ARM009 ","IOT010","AWSEDU011"
   ]
   tname:any;
   allocateddetails:any=[];
