@@ -125,11 +125,11 @@
 
             </div>
             <footer class="mt-auto p-3 d-flex">
-              <button class="btn btn-primary ml-auto" (click)="editProfile()" *ngIf="!isEditProfile">
+              <button class="btn  ml-auto" (click)="editProfile()" *ngIf="!isEditProfile" style="background-color: darkcyan;">
                 <i class="bi bi-person-circle"></i>
                 <span class="ml-3 d-inline-block">Edit Profile</span>
               </button>
-              <button class="btn btn-primary ml-auto" *ngIf='isEditProfile'>
+              <button class="btn btn-primary ml-auto" *ngIf='isEditProfile' style="background-color: darkcyan;">
                 <i class="bi bi-check2-circle"></i>
                 <span class="ml-3 d-inline-block">Save Profile</span>
               </button>

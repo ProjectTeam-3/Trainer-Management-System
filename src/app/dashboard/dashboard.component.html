@@ -3,8 +3,8 @@
 <section class="home-section">
   <nav>
     <div class="sidebar-button">
-      <i class="bi bi-columns-gap sidebarBtn"></i>
-      <span class="dashboard">Dashboard</span>
+      <i class="bi bi-columns-gap sidebarBtn"  ></i>
+      <span class="dashboard" >Dashboard</span>
     </div>
   </nav>
 
@@ -47,8 +47,8 @@
   <br>
     <div class="table">
     <table class="search-table ">
-        <thead class="thead" style="background-color: #17252A;color:#FEFFFF ;">
-          <tr >
+        <thead class="thead-dark">
+          <tr>
             
             <th scope="col">Name</th>
             <th scope="col">Skill Set</th>
@@ -111,7 +111,7 @@
                 
             </td>
           </tr>
-          <tr *ngFor="let trainer of trainerslist" (click)="Allocate(trainer)">
+          <tr *ngFor="let trainer of trainerslist" (click)="Allocate(trainer)" >
             
             <td scope="row" >{{trainer.fname}} {{trainer.lname}}</td>
             <td>{{trainer.skill}}</td>
