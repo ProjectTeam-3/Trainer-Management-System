@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarEventAction, CalendarView } from 'angular-calendar';
+;
+
 import { startOfDay } from 'date-fns';
 import { AuthService } from '../auth.service';
 import { TrainerProfileService } from '../trainer-profile.service';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent implements OnInit {
 
-  constructor(private calender:TrainerProfileService,private gettoken:AuthService) { }
+export class ScheduleComponent implements OnInit {
+  
+  constructor(private calender:TrainerProfileService,private gettoken:AuthService,private modal: NgbModal) { }
+
   schedules:any=[];
  items:CalendarEvent[]=[]
 
@@ -23,11 +28,11 @@ export class ScheduleComponent implements OnInit {
       
       for(let i=0;i<=this.schedules.length;i++){
       
-        // this.events.push({
-        //   start:startOfDay(new Date(this.schedules[i].startdate)),
-        //   end:new Date(this.schedules[i].enddate),
-        //   title: 'course id:' +this.schedules[i].courseid,
-        // })
+        this.events.push({
+          start:startOfDay(new Date(this.schedules[i].startdate)),
+          end:new Date(this.schedules[i].enddate),
+          title: 'course id:' +this.schedules[i].courseid,
+        })
         this.items.push({
           start:startOfDay(new Date(this.schedules[i].startdate)),
           end:new Date(this.schedules[i].enddate),
@@ -37,7 +42,7 @@ export class ScheduleComponent implements OnInit {
           
         })
        console.log(this.events);
-        this.events=this.items;
+         this.events=this.items;
       }
       
     })
@@ -51,9 +56,8 @@ export class ScheduleComponent implements OnInit {
   setView(view: CalendarView) {
     this.view = view;
   }
-  events: CalendarEvent[]=[]
-
-
+   events: CalendarEvent[]=[]
+ 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     // alert(JSON.stringify(events));
     // console.log(events);

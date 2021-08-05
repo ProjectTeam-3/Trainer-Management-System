@@ -72,4 +72,8 @@ export class AdminService {
     return this.http.delete("http://localhost:3000/remove/"+id)
 
   }
+  getNumbers(){
+    console.log('hi')
+    return this.http.get("http://localhost:3000/getnumbers");
+  }
 }

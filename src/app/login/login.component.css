@@ -1,4 +1,6 @@
-
+.loginpage{
+	background: linear-gradient(#008B8B,#042727);
+}
 .login-wrap{
 	width: 100%;
 	margin:auto;
@@ -56,6 +58,7 @@ color: rgb(190, 190, 190);
 .login-html .for-pwd:checked + .tab{
 	color:#fff;
 	border-color:rgb(0, 104, 104);;
+	/* border-color:grey; */
 }
 .login-form{
 	min-height:345px;

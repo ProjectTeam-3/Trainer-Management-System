@@ -10,10 +10,14 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   trainerslist:TrainersSearchModel[]=[]
   constructor(private adminservice:AdminService, private router:Router) { }
-
+  numbers=[];
   ngOnInit(): void {
     this.adminservice.getTrainers().subscribe((trainers)=>{
-    this.trainerslist=(JSON.parse(JSON.stringify(trainers)))})
+    this.trainerslist=(JSON.parse(JSON.stringify(trainers)))});
+    this.adminservice.getNumbers().subscribe((data)=>{
+      this.numbers=JSON.parse(JSON.stringify(data));
+     
+    })
   }
 namesearch="";
 skillsearch="";
