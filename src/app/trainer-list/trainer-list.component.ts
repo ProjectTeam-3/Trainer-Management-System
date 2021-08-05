@@ -30,7 +30,7 @@ export class TrainerListComponent implements OnInit {
   ngOnInit(): void {
     this.adminservice.getTrainers().subscribe((data)=>{
     this.trainers=(JSON.parse(JSON.stringify(data)))})
-    console.log(this.imagePath);
+    
   }
   Allocate(trainer:any){
     localStorage.setItem("gettrainerId", trainer._id.toString());
@@ -38,12 +38,14 @@ export class TrainerListComponent implements OnInit {
     this.router.navigate(['/admin/allocation']);
   
   }
-  Remove(trainer:any)
-  {
+  Remove(trainer:any){
+ var c=confirm('Are you sure you want to delete the trainer??')
+  if(c){
+  
     this.adminservice.Remove(trainer._id)
       .subscribe((data) => {
         this.trainers = this.trainers.filter(p => p !== trainer);
       })
   }
-
+  }
 }
