@@ -40,7 +40,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllocatedListComponent } from './allocated-list/allocated-list.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+<<<<<<< HEAD
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+=======
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+>>>>>>> 876a9e9da613a0dcf696ea18be0c0a7c777e4dbd
 
 
 
@@ -66,6 +70,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AllocatedListComponent,
     TrainerListComponent,
     ScheduleComponent,
+    TrainerHomeComponent,
   ],
   imports: [
     BrowserModule,
