@@ -191,13 +191,15 @@ nav .profile-details i{
   justify-content: center;
   width: calc(100% / 4 - 15px);
   background: #fff;
-  padding: 15px 14px;
+  padding: 15px 14px; 
   border-radius: 12px;
+  height: 150% !important;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 .overview-boxes .box-topic{
   font-size: 20px;
   font-weight: 500;
+  
 }
 .home-content .box .number{
   display: inline-block;
@@ -334,6 +336,7 @@ width: 150px;
   .overview-boxes .box{
     width: calc(100% / 2 - 15px);
     margin-bottom: 15px;
+    height:30%;
   }
 }
 @media (max-width: 700px) {
@@ -354,8 +357,12 @@ width: 150px;
   .overview-boxes .box{
     width: 100%;
     margin-bottom: 15px;
+   height:100%
   }
   .sidebar.active ~ .home-section nav .profile-details{
     display: none;
   }
+}
+#number{
+  padding: 10px;
 }

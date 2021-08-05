@@ -448,7 +448,26 @@ app.post('/schedule', function (req, res) {
       console.log(data);
     });
 });
+app.get('/getnumbers',(req,res)=>{
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  var numbers=[];
+  enrollmentdata.countDocuments().then((no)=>{
+   numbers.push(no);
+   allocateddata.countDocuments().then((no)=>{
+    numbers.push(no);
+    trainerdata.countDocuments().then((no)=>{
+      numbers.push(no);
+      console.log(numbers);
+      res.send(numbers);
+    })
+ })
+  })
+  
+  
+})
 
 app.listen(3000, function () {
   console.log("listening to port number: 3000");
+
 });

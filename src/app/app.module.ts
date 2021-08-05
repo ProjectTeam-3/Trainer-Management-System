@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllocatedListComponent } from './allocated-list/allocated-list.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -82,7 +83,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule 
+    MatInputModule,
+    NgbModule 
     
 
   ],
