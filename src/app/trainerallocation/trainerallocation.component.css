@@ -134,3 +134,8 @@
       display: none;
     }
   }
+  input{
+    padding: 2%;
+    border: 0.5px solid grey;
+    border-radius: .5em;
+  }

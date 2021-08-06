@@ -32,18 +32,21 @@ export class RequestsComponent implements OnInit {
     })
   }
   Reject(request:any)
-  {
+  { 
+    var c=confirm('Are you sure you want to raject this request?');
+  if(c){
     this.requestlistService.Reject(request._id)
       .subscribe((data) => {
         this.requests = this.requests.filter(p => p !== request);
       })
-
+    }
   }
   Approve(request:any){
-    
+   
     localStorage.setItem("editrequestId", request._id.toString());
     this.router.navigate(['/admin/approval']);
     // alert("Trainer is approved")
+    
   }
   
   

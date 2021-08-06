@@ -318,3 +318,6 @@ width: 150px;
 #number{
   padding: 10px;
 }
+#tablerow:hover{
+  cursor: pointer;
+}

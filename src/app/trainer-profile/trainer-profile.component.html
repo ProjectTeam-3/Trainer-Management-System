@@ -44,7 +44,7 @@
                   </h4>
                 </div>
                 <div class="col-md-12">
-                  <div class="label label-default" [ngClass]="{
+                  <div class="label label-default" style='background-color: rgb(9, 68, 68);' [ngClass]="{
                 'form-group': isEditProfile
               }">
                     <i class="bi bi-envelope-open"></i>
@@ -54,12 +54,12 @@
                   </div>
                 </div>
 
-                <div class="col-md-12">
-                  <div class="label label-default" [ngClass]="{
+                <div class="col-md-12" >
+                  <div class="label label-default" style='background-color: rgb(74, 77, 77);' [ngClass]="{
                 'form-group': isEditProfile
               }">
                     <i class="bi bi-telephone"></i>
-                    <span *ngIf="!isEditProfile" class="d-inline-block ml-2">{{trainer.phno}}</span>
+                    <span *ngIf="!isEditProfile"  class="d-inline-block ml-2">{{trainer.phno}}</span>
                     <input class="fc form-control" type="text" name="" id="" formControlName="phno" required
                       *ngIf='isEditProfile'>
                   </div>
@@ -125,7 +125,7 @@
 
             </div>
             <footer class="mt-auto p-3 d-flex">
-              <button class="btn  ml-auto" (click)="editProfile()" *ngIf="!isEditProfile" style="background-color: darkcyan;">
+              <button class="btn  ml-auto" id="bttn1" (click)="editProfile()" *ngIf="!isEditProfile" >
                 <i class="bi bi-person-circle"></i>
                 <span class="ml-3 d-inline-block">Edit Profile</span>
               </button>

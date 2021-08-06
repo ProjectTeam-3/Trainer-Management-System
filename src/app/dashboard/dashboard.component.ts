@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
   numbers=[];
   ngOnInit(): void {
     this.adminservice.getTrainers().subscribe((trainers)=>{
-    this.trainerslist=(JSON.parse(JSON.stringify(trainers)))});
+    this.trainerslist=(JSON.parse(JSON.stringify(trainers)))
+  console.log(this.trainerslist)
+  });
+    
     this.adminservice.getNumbers().subscribe((data)=>{
       this.numbers=JSON.parse(JSON.stringify(data));
      
@@ -58,7 +61,7 @@ searchCourse(){
 }
 Allocate(trainer:any){
   localStorage.setItem("gettrainerId", trainer._id.toString());
-  
+  localStorage.setItem('trainermail',trainer.email);
   this.router.navigate(['/admin/allocation']);
 
 }

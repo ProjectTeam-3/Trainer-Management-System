@@ -6,7 +6,9 @@
     
    
 }
-
+h2{
+  color: #0e5555;
+}
 .navbar-brand{
     font-weight: 600;
 }
@@ -43,13 +45,21 @@
     background: #f8f9fa;
     border-radius: 0;
 }
+#btn1{
+  background-color: teal;
+  color: white;
+}
+#btn1:hover{
+  background-color: rgb(88, 88, 88);
+  
+}
 .header-btn{
     width: 161%;
     border: none;
     border-radius: 1rem;
     padding: 8%;
-    background: darkcyan;
-    background-color: darkcyan;
+    background: linear-gradient(#008B8B,#808080);
+    /* background-color: rgb(23, 94, 94); */
     color: #fff;
     font-weight: 700;
     font-size: 13px;

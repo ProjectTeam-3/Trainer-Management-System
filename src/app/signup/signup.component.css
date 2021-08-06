@@ -84,11 +84,16 @@
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
-	color:#aaa;
+	color:rgb(0,0,0);
 	font-size:12px;
+	
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:rgb(24, 107, 107);
+}
+.login-form .group .button:hover{
+	background:rgb(95, 97, 97);
+	color: whitesmoke;
 }
 .login-form .group label .icon{
 	width:15px;
@@ -155,4 +160,11 @@
 small{
 	font-size: medium;
 	color: black;
+}
+.Lgin{
+	color:#1161ee ;
+	font-size: 15px;
+}
+.Lgin:hover{
+	color:whitesmoke;
 }
