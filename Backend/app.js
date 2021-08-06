@@ -103,7 +103,7 @@ app.post('/admin', function (req, res) {
 app.post('/request', (req, res) => {
   res.header("Access-Control-Allow-Orgin", "*");
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-
+  console.log('hi');
   var upload = multer({ storage: storage }).single('img');
   upload(req, res, (err) => {
 
