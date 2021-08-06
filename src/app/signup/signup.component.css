@@ -1,4 +1,6 @@
-
+.signuppage{
+	background: linear-gradient(#008B8B,#042727);
+}
 .login-wrap{
 	width: 100%;
 	margin:auto;
