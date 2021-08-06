@@ -430,10 +430,19 @@ app.get('/allocatedlist', function (req, res) {
 app.delete('/remove/:id', (req, res) => {
 
   id = req.params.id;
+  trainerdata.findOne({_id:id})
+  .then((data) =>{
+    email=data.email;
+  })
   trainerdata.findByIdAndDelete({ "_id": id })
     .then(() => {
-      console.log('removed a trainer ')
-      res.send();
+      allocateddata.findOneAndDelete({'email':email})
+      .then(() => {
+       
+        console.log('removed a trainer ')
+        res.send();
+      })
+   
     })
 })
 app.post('/schedule', function (req, res) {
