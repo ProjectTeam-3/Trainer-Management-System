@@ -56,6 +56,7 @@ export class EnrollmentComponent implements OnInit {
     // course:this.course,
     // img:this.img
     // }
+    console.log('entered');
     var formdata=new FormData();
     formdata.append("img",this.img);
     formdata.append("fname",this.fname);
