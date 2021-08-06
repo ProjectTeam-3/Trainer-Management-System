@@ -4,9 +4,11 @@
     margin-right: 25px; }
     #submit:hover {
       background-color: #1161ee; }
-  
+     
   .form-input {
-    position: relative; }
+    position: relative; 
+    width: auto;
+}
   
     .select-list {
       position: relative;
@@ -30,7 +32,9 @@
             padding: 0 30px; }
         
         .form-input, .form-select, .form-radio {
-          margin-bottom: 23px; }
+          margin-bottom: 23px; 
+         
+       }
         
         label, input {
           display: block;
@@ -256,6 +260,9 @@
           .overview-boxes .box{
             width: 100%;
             margin-bottom: 15px;
+          }
+           .form-input{
+            width: 100%;
           }
           .sidebar.active ~ .home-section nav .profile-details{
             display: none;

@@ -9,16 +9,20 @@
     </nav>
     <div class="home-content">
     <div class="signup-form">
-    <form (ngSubmit)="addRequest()" class="register-form"  #trainerEnroll="ngForm" ngNativeValidate>
-      <div class="Image" >
+    <form class="row no-gutters align-items-stretch" (ngSubmit)="addRequest()" class="register-form"  #trainerEnroll="ngForm" ngNativeValidate>
+      <div class="Image" style="align-items: center;" >
         <img [src]="url" class="rounded mx-auto d-block" width="150vh" name="img" height="200vh" [(ngModel)]="img" alt="..." style="margin-left: 20%;" >
         <label for="file" class="required" id="photo" style="margin-left: 41%;">
           Choose Photo</label >
          <input type="file" name="first_name" class="custom" id="file" accept="image/*"  (change)="onFileSelected($event)" /> 
     </div>
-        <div class="form-row">
+        <div class="form-row " >
+           
           
-            <div class="form-group">
+            <div class="form-group col-md-6 ">
+            <div class=" h-100 form">
+            <div class="row content  no-gutters align-items-stretch">
+                              <div class="col-md-12"> 
               
                 <div class="form-input">
                     <label for="first_name" class="required">First name</label>
@@ -41,8 +45,13 @@
                     <input type="text" name="phno" id="phone_number" [(ngModel)]="phno" required />
                 </div>
             </div>
-            <div class="form-group">
-                
+            </div>
+            </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class=" h-100 form">
+            <div class="row content  no-gutters align-items-stretch">
+              <div class="col-md-12"> 
               <div class="form-input">
                 <label for="qual" class="required">Highest Qualification</label>
                 <input type="text" name="qual" id="qual" [(ngModel)]="qual" required/>
@@ -71,7 +80,10 @@
                 </div>
             </div>
         </div>
-       
+       </div>
+            </div>
+            </div>
+
             
         <div class="form-submit">
             <button type="submit" value="Submit" [disabled]="trainerEnroll.form.invalid" click="validate()" class="submit" id="submit" name="submit">Submit</button>
