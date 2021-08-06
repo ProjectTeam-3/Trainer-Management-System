@@ -33,7 +33,7 @@ export class RequestsComponent implements OnInit {
   }
   Reject(request:any)
   { 
-    var c=confirm('Are you sure you want to raject this request?');
+    var c=confirm('Are you sure you want to reject this request?');
   if(c){
     this.requestlistService.Reject(request._id)
       .subscribe((data) => {
