@@ -42,7 +42,8 @@
                 </div>
                 <div class="form-input">
                     <label for="phone_number" class="required">Phone number</label>
-                    <input type="text" name="phno" id="phone_number" [(ngModel)]="phno" required />
+                    <input type="text" pattern="^((\\+91-?)|0)?[0-9]{10}$" name="phno" id="phone_number" [(ngModel)]="phno" required #phnField="ngModel"/>
+                    <span style="color: Red; background-color: rgb(255, 217, 215); padding: 6px; margin-top: 5%;" *ngIf="phnField.errors">Give a valid Phone No!</span>
                 </div>
             </div>
             </div>
