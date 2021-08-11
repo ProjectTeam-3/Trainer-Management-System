@@ -34,7 +34,7 @@ export class TrainerListComponent implements OnInit {
   }
   Allocate(trainer:any){
     localStorage.setItem("gettrainerId", trainer._id.toString());
-    
+    localStorage.setItem('trainermail',trainer.email);
     this.router.navigate(['/admin/allocation']);
   
   }

@@ -18,4 +18,7 @@ export class AuthService {
   {
     return localStorage.getItem('token')
   }
+  checkAdmin(){
+    return !!localStorage.getItem('admin');
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { TrainersSearchModel } from './trainerssearch.module';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   trainerslist:TrainersSearchModel[]=[]
-  constructor(private adminservice:AdminService, private router:Router) { }
+  constructor(private adminservice:AdminService, private router:Router,private authservice:AuthService) { }
   numbers=[];
   ngOnInit(): void {
+    if(!this.authservice.checkAdmin()){
+      this.router.navigate(['/login']);
+    }
     this.adminservice.getTrainers().subscribe((trainers)=>{
     this.trainerslist=(JSON.parse(JSON.stringify(trainers)))
   console.log(this.trainerslist)

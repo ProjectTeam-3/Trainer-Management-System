@@ -26,13 +26,13 @@ export class ScheduleComponent implements OnInit {
     .subscribe((data)=>{
       this.schedules=(JSON.parse(JSON.stringify(data)))
       
-      for(let i=0;i<=this.schedules.length;i++){
+      for(let i=0;i<this.schedules.length;i++){
       
-        this.events.push({
-          start:startOfDay(new Date(this.schedules[i].startdate)),
-          end:new Date(this.schedules[i].enddate),
-          title: 'course id:' +this.schedules[i].courseid,
-        })
+        // this.events.push({
+        //   start:startOfDay(new Date(this.schedules[i].startdate)),
+        //   end:new Date(this.schedules[i].enddate),
+        //   title: 'course id:' +this.schedules[i].courseid,
+        // })
         this.items.push({
           start:startOfDay(new Date(this.schedules[i].startdate)),
           end:new Date(this.schedules[i].enddate),
@@ -41,8 +41,9 @@ export class ScheduleComponent implements OnInit {
           
           
         })
+       
        console.log(this.events);
-         this.events=this.items;
+       this.events=this.items; 
       }
       
     })

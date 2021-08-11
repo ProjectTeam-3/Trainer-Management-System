@@ -76,7 +76,13 @@ export class TrainerallocationComponent implements OnInit {
 filter(){
   var dt = new Date(this.trainer.startdate);
   var dte=new Date(this.trainer.enddate);
-  
+   if(dt>=dte){
+    alert('Start date should be before end date!');
+    this.trainer.startdate='';
+      this.trainer.enddate=''
+      
+  }
+  else{
     for(let i=0;i<this.dates.length;i++){
       var start=new Date (this.dates[i].startdate);
       var end=new Date(this.dates[i].enddate);
@@ -92,6 +98,7 @@ filter(){
         break;
      }
     }
+  }
    
 }
 
